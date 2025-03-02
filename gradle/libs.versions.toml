@@ -1,0 +1,92 @@
+[versions]
+adapterDelegates = "4.3.2"
+appcompat = "1.7.0"
+constraintLayout = "2.2.1"
+coreKtx = "1.15.0"
+coroutines = "1.8.1"
+espresso = "3.6.1"
+fragmentKtx = "1.8.6"
+glide = "4.16.0"
+glideCompiler = "4.16.0"
+hilt = "2.51.1"
+jodaTime = "2.12.7"
+junit = "4.13.2"
+junitAndroid = "1.2.1"
+ktxSerializationConverter = "1.0.0"
+ktxSerializationJson = "1.7.1"
+material = "1.12.0"
+navComponents = "2.8.8"
+okhttp3Logging = "4.12.0"
+retrofit = "2.11.0"
+room = "2.6.1"
+roomCompiler = "2.6.1"
+swipeRefreshLayout = "1.1.0"
+timber = "5.0.1"
+viewModelKtx = "2.8.7"
+
+# PLUGINS
+androidGradlePlugin = "8.8.2"
+kotlin = "2.0.0"
+ksp = "2.0.0-1.0.22"
+hiltPlugin = "2.51.1"
+
+[libraries]
+# ANDROID LIBS
+kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+fragmentKtx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+viewModelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelKtx" }
+
+# MATERIAL COMPONENTS
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+swipeRefreshLayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swipeRefreshLayout" }
+constraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }
+
+# UI
+adapterDelegates = { group = "com.hannesdorfmann", name = "adapterdelegates4", version.ref = "adapterDelegates" }
+
+# MEDIA
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glideCompiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glideCompiler" }
+
+# TESTS
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+junitAndroid = { group = "androidx.test.ext", name = "junit", version.ref = "junitAndroid" }
+espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+
+# DI
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+
+# LOG
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+# NETWORK
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp3Logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3Logging" }
+ktxSerializationConverter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "ktxSerializationConverter" }
+
+# NAVIGATION
+navComponentsFragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navComponents" }
+navComponentsUi = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navComponents" }
+
+# MULTITHREADING
+coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# LOCAL STORAGE
+room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+
+# SYSTEM UTILS
+jodaTime = { group = "net.danlew", name = "android.joda", version.ref = "jodaTime" }
+ktxSerializationJson = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "ktxSerializationJson" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }

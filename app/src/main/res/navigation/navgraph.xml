@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.psutools.reminder.ui.main.MainActivity"
+        android:label="MainActivity"></activity>
+
+    <action
+        android:id="@+id/action_to_sample_data_details"
+        app:destination="@id/sampleDataDetailsActivity" />
+    <action
+        android:id="@+id/action_to_sample_data_list"
+        app:destination="@id/sampleDataListActivity" />
+
+    <activity
+        android:id="@+id/sampleDataDetailsActivity"
+        android:name="com.psutools.reminder.ui.sample.details.SampleDataDetailsActivity"
+        android:label="SampleDataDetailsActivity" />
+    <activity
+        android:id="@+id/sampleDataListActivity"
+        android:name="com.psutools.reminder.ui.sample.list.SampleDataListActivity"
+        android:label="SampleDataListActivity" />
+</navigation>

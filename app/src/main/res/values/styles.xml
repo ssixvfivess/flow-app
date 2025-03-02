@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Custom" />
+
+    <style name="Custom.Snackbar" parent="Custom" />
+
+    <style name="Custom.Dialog.Base" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_yellow</item>
+        <item name="colorPrimaryDark">@color/primary_yellow</item>
+        <item name="colorPrimaryVariant">@color/primary_yellow</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnSurface">@color/secondary_text</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary_yellow</item>
+        <item name="colorSecondaryVariant">@color/primary_yellow</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
+
+
+    <style name="Custom.Snackbar.Text" parent="Custom.Snackbar">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

@@ -1,4 +1,5 @@
 package com.psutools.reminder.base.arch.viewmodel
+//принимает зависимости через hilt и создает экземпляры VM с этими зависимостями
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

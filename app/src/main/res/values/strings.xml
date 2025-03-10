@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Template</string>
+    <string name="main_fragment">Главная</string>
+    <string name="routes_fragment">Поездки</string>
+    <string name="history_fragment">История</string>
+    <string name="profile_fragment">Профиль</string>
 </resources>

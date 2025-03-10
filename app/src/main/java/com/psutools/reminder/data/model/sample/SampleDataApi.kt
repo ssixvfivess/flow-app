@@ -1,4 +1,4 @@
-package com.psutools.reminder.data.model
+package com.psutools.reminder.data.model.sample
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

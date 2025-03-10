@@ -52,7 +52,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
             // Request
-            buildConfigField("String", "API_BASE_URL", "\"https://catfact.ninja\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://api.psu-tools.ru\"")
 
             // System
             buildConfigField("String", "DB_NAME", "\"psutools-trip-reminder-db\"")

@@ -1,8 +1,8 @@
-package com.psutools.reminder.data.mapper
+package com.psutools.reminder.data.mapper.sample
 
-import com.psutools.reminder.data.model.SampleDataApi
-import com.psutools.reminder.data.model.SampleDataListApi
-import com.psutools.reminder.domain.model.SampleData
+import com.psutools.reminder.data.model.sample.SampleDataApi
+import com.psutools.reminder.data.model.sample.SampleDataListApi
+import com.psutools.reminder.domain.model.sample.SampleData
 import javax.inject.Inject
 
 class SampleDataMapper @Inject constructor() {

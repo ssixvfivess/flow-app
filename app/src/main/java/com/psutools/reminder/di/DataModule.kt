@@ -2,8 +2,8 @@ package com.psutools.reminder.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.psutools.reminder.BuildConfig
-import com.psutools.reminder.data.repository.SampleDataRepositoryImpl
-import com.psutools.reminder.data.service.SampleDataService
+import com.psutools.reminder.data.repository.sample.SampleDataRepositoryImpl
+import com.psutools.reminder.data.service.sample.SampleDataService
 import com.psutools.reminder.domain.repository.SampleDataRepository
 import dagger.Binds
 import dagger.Module

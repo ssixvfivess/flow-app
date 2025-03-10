@@ -1,7 +1,7 @@
-package com.psutools.reminder.data.service
+package com.psutools.reminder.data.service.sample
 
-import com.psutools.reminder.data.model.SampleDataApi
-import com.psutools.reminder.data.model.SampleDataListApi
+import com.psutools.reminder.data.model.sample.SampleDataApi
+import com.psutools.reminder.data.model.sample.SampleDataListApi
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,6 +1,6 @@
 package com.psutools.reminder.domain.usecase
 
-import com.psutools.reminder.domain.model.SampleData
+import com.psutools.reminder.domain.model.sample.SampleData
 import com.psutools.reminder.domain.repository.SampleDataRepository
 import javax.inject.Inject
 

@@ -14,8 +14,5 @@ class TripDataMapper @Inject constructor() {
             overtime = apiModel.overtime
         )
     }
-
-//    fun toDomain(apiModel: SampleDataListApi): List<SampleData> {
-//        return apiModel.data.map { toDomain(it) }
-//    }
 }
+

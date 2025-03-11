@@ -1,10 +1,11 @@
 package com.psutools.reminder.domain.model
-import java.util.UUID
+
+import com.psutools.reminder.data.model.PointDataApi
 
 
 data class TripData(
-    val id: UUID,
-    val route: List<PointData>,
-    val transportType: TransportData,
+    val id: String,
+    val route: PointDataApi,
+    val transportType: String,
     val overtime: Int
 )

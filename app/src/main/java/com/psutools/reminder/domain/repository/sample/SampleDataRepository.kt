@@ -1,4 +1,4 @@
-package com.psutools.reminder.domain.repository
+package com.psutools.reminder.domain.repository.sample
 
 import com.psutools.reminder.domain.model.sample.SampleData
 

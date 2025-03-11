@@ -22,15 +22,6 @@ class MainActivity : AppCompatActivity() {
         val viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-//        viewBinding.detailsButton.setOnClickListener {
-//            val intent = router.createSampleDataDetailsIntent(this)
-//            startActivity(intent)
-//        }
-//        viewBinding.listButton.setOnClickListener {
-//            val intent = router.createSampleDataListIntent(this)
-//            startActivity(intent)
-//        }
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController

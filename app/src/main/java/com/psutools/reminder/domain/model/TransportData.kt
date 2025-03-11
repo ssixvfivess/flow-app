@@ -1,17 +1,16 @@
 package com.psutools.reminder.domain.model
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 enum class TransportData {
     CAR,
     TAXI,
     WALK,
     BICYCLE,
     SCOOTER,
-    PUBLIC_TRANSPORT;
+    PUBLIC_TRANSPORT,
+    UNKNOWN;
 
-    fun lowerCase(): String {
-        return this.name.lowercase()
+    companion object {
+        fun fromValue(value: String) : TransportData =
+            TransportData.entries.find { it.name == value } ?: UNKNOWN
     }
 }

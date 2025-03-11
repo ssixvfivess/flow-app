@@ -14,28 +14,15 @@ import java.util.UUID
 @Serializable
 data class TripDataApi(
 
-    @Serializable(with = UUIDSerializer::class)
     @SerialName("id")
-    val id: UUID,
+    val id: String,
 
     @SerialName("route")
-    val route: List<PointData>,
+    val route: PointDataApi,
 
     @SerialName("transportType")
-    val transportType: TransportData,
+    val transportType: String,
 
     @SerialName("overtime")
     val overtime: Int
 )
-
-object UUIDSerializer : KSerializer<UUID> {
-    override val descriptor = PrimitiveSerialDescriptor("UUID", PrimitiveKind.STRING)
-
-    override fun deserialize(decoder: Decoder): UUID {
-        return UUID.fromString(decoder.decodeString())
-    }
-
-    override fun serialize(encoder: Encoder, value: UUID) {
-        encoder.encodeString(value.toString())
-    }
-}

@@ -1,7 +1,7 @@
-package com.psutools.reminder.domain.usecase
+package com.psutools.reminder.domain.usecase.sample
 
 import com.psutools.reminder.domain.model.sample.SampleData
-import com.psutools.reminder.domain.repository.SampleDataRepository
+import com.psutools.reminder.domain.repository.sample.SampleDataRepository
 import javax.inject.Inject
 
 interface GetSampleDataUseCase {

@@ -18,7 +18,7 @@ data class TripDataApi(
     val id: String,
 
     @SerialName("route")
-    val route: PointDataApi,
+    val route: List<PointDataApi>,
 
     @SerialName("transportType")
     val transportType: String,

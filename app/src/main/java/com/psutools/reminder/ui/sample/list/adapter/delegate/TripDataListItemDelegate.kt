@@ -6,20 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.databinding.ItemSampleDataListBinding
-import com.psutools.reminder.ui.sample.list.adapter.delegate.SampleDataListItemDelegate.ViewHolder
+import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate.ViewHolder
 
-class SampleDataListItemDelegate(
+class TripDataListItemDelegate(
     private val onClickListener: (text: String) -> Unit,
-) : BaseItemAdapterDelegate<SampleDataListItem, ViewHolder>() {
+) : BaseItemAdapterDelegate<TripDataListItem, ViewHolder>() {
 
-    override fun isForViewType(item: BaseListItem): Boolean = item is SampleDataListItem
+    override fun isForViewType(item: BaseListItem): Boolean = item is TripDataListItem
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val viewBinding = ItemSampleDataListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(viewBinding)
     }
 
-    override fun onBind(item: SampleDataListItem, holder: ViewHolder, payloads: List<Any>) {
+    override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
             content.text = item.text
             content.setOnClickListener {

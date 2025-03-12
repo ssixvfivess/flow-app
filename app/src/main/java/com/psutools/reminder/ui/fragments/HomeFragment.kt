@@ -35,7 +35,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 
-        setupToolbar()
         setupRecycler()
         setupStateSwitcher(isFirstLaunch)
 
@@ -50,12 +49,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 is ScreenState.Content -> showContent(state.data)
                 ScreenState.Loading -> showLoading()
             }
-        }
-    }
-
-    private fun setupToolbar() {
-        viewBinding.toolbar.setNavigationOnClickListener {
-            requireActivity().finish()
         }
     }
 

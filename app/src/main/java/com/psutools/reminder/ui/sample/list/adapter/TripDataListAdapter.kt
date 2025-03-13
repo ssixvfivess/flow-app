@@ -5,7 +5,7 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate
 
-class SampleDataListAdapter(
+class TripDataListAdapter(
     onClickListener: (text: String) -> Unit,
 ) : ListDelegationAdapter<List<BaseListItem>>() {
 

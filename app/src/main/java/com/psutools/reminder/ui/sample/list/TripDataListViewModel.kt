@@ -14,10 +14,10 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SampleDataListViewModel @Inject constructor(
+class TripDataListViewModel @Inject constructor(
     private val getTripDataListUseCase: GetTripDataListUseCase,
     private val coroutineDispatchers: CoroutineDispatchers,
-    private val sampleDataListUiMapper: TripDataListUiMapper,
+    private val tripDataListUiMapper: TripDataListUiMapper,
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<ScreenState<SampleDataListState>> = MutableStateFlow(ScreenState.Loading)
@@ -30,7 +30,7 @@ class SampleDataListViewModel @Inject constructor(
         viewModelScope.tryLaunch(
             doOnLaunch = {
                 val data = getTripDataListUseCase()
-                val items = sampleDataListUiMapper.createListItems(data)
+                val items = tripDataListUiMapper.createListItems(data)
 
                 _state.value = ScreenState.Content(
                     SampleDataListState(items = items)

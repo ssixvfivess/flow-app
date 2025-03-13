@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
-import com.psutools.reminder.databinding.ItemSampleDataListBinding
+import com.psutools.reminder.databinding.ItemTripDataListBinding
 import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate.ViewHolder
 
 class TripDataListItemDelegate(
@@ -15,7 +15,8 @@ class TripDataListItemDelegate(
     override fun isForViewType(item: BaseListItem): Boolean = item is TripDataListItem
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        val viewBinding = ItemSampleDataListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val viewBinding = ItemTripDataListBinding.inflate(LayoutInflater.from(parent.context),
+            parent, false)
         return ViewHolder(viewBinding)
     }
 
@@ -28,5 +29,5 @@ class TripDataListItemDelegate(
         }
     }
 
-    class ViewHolder(val viewBinding: ItemSampleDataListBinding) : RecyclerView.ViewHolder(viewBinding.root)
+    class ViewHolder(val viewBinding: ItemTripDataListBinding) : RecyclerView.ViewHolder(viewBinding.root)
 }

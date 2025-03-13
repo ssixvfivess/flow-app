@@ -1,7 +1,5 @@
 package com.psutools.reminder.ui.fragments
 
-import android.content.Context
-import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.fragment.app.viewModels
@@ -9,10 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentHomeBinding
-import com.psutools.reminder.ui.sample.list.SampleDataListActivity
 import com.psutools.reminder.ui.sample.list.SampleDataListState
-import com.psutools.reminder.ui.sample.list.SampleDataListViewModel
-import com.psutools.reminder.ui.sample.list.adapter.SampleDataListAdapter
+import com.psutools.reminder.ui.sample.list.TripDataListViewModel
+import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
 import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
@@ -27,8 +24,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return FragmentHomeBinding.inflate(layoutInflater)
     }
 
-    private val viewModel: SampleDataListViewModel by viewModels<SampleDataListViewModel>()
-    private lateinit var sampleDataListAdapter: SampleDataListAdapter
+    private val viewModel: TripDataListViewModel by viewModels<TripDataListViewModel>()
+    private lateinit var tripDataListAdapter: TripDataListAdapter
 
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
 
@@ -53,13 +50,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setupRecycler() {
-        sampleDataListAdapter = SampleDataListAdapter(
+        tripDataListAdapter = TripDataListAdapter(
             onClickListener = onClickListener
         )
 
         viewBinding.contentRecycler.layoutManager = LinearLayoutManager(requireContext())
 
-        viewBinding.contentRecycler.adapter = sampleDataListAdapter
+        viewBinding.contentRecycler.adapter = tripDataListAdapter
     }
 
     private fun setupStateSwitcher(isFirstLaunch: Boolean) {
@@ -77,7 +74,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun showContent(stateData: SampleDataListState) {
         Handler(Looper.getMainLooper()).post {
-            sampleDataListAdapter.items = stateData.items
+            tripDataListAdapter.items = stateData.items
             contentStateSwitcher.switchState(ContentState.CONTENT)
         }
     }
@@ -88,12 +85,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val onClickListener = { text: String ->
         SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
-    }
-
-    companion object {
-
-        fun createIntent(context: Context): Intent {
-            return Intent(context, HomeFragment::class.java)
-        }
     }
 }

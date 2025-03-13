@@ -12,6 +12,6 @@ class TripDataRepositoryImpl @Inject constructor(
 ) : TripDataRepository {
 
     override suspend fun getTripDataList(): List<TripData> {
-        return mapper.toDomain(service.getTripsList())
+        return mapper.toDomain(service.getTripsList().data)
     }
 }

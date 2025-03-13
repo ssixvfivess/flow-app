@@ -14,9 +14,7 @@ class TripDataListUiMapper @Inject constructor() {
         }
     }
 
-    fun getFullRouteAsString(route: List<PointData>): String {
-
-
+    private fun getFullRouteAsString(route: List<PointData>): String {
         val nameRoute = StringBuilder()
         for (point in route){
             nameRoute.append(point.name).append(" → ")

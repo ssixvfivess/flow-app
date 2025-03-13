@@ -1,9 +1,9 @@
-package com.psutools.reminder.data.repository
+package com.psutools.reminder.data.repository.sample
 
-import com.psutools.reminder.data.mapper.SampleDataMapper
-import com.psutools.reminder.data.service.SampleDataService
-import com.psutools.reminder.domain.model.SampleData
-import com.psutools.reminder.domain.repository.SampleDataRepository
+import com.psutools.reminder.data.mapper.sample.SampleDataMapper
+import com.psutools.reminder.data.service.sample.SampleDataService
+import com.psutools.reminder.domain.model.sample.SampleData
+import com.psutools.reminder.domain.repository.sample.SampleDataRepository
 import javax.inject.Inject
 
 class SampleDataRepositoryImpl @Inject constructor(

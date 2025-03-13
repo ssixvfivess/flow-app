@@ -1,4 +1,4 @@
-package com.psutools.reminder.domain.model
+package com.psutools.reminder.domain.model.sample
 
 data class SampleData(
     val text: String,

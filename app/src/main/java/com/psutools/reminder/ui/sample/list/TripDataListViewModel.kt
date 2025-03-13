@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.coroutines.CoroutineDispatchers
-import com.psutools.reminder.domain.usecase.GetSampleDataListUseCase
+import com.psutools.reminder.domain.usecase.GetTripDataListUseCase
 import com.psutools.reminder.utils.coroutines.tryLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -14,10 +14,10 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SampleDataListViewModel @Inject constructor(
-    private val getSampleDataListUseCase: GetSampleDataListUseCase,
+class TripDataListViewModel @Inject constructor(
+    private val getTripDataListUseCase: GetTripDataListUseCase,
     private val coroutineDispatchers: CoroutineDispatchers,
-    private val sampleDataListUiMapper: SampleDataListUiMapper,
+    private val tripDataListUiMapper: TripDataListUiMapper,
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<ScreenState<SampleDataListState>> = MutableStateFlow(ScreenState.Loading)
@@ -29,8 +29,8 @@ class SampleDataListViewModel @Inject constructor(
     fun loadData() {
         viewModelScope.tryLaunch(
             doOnLaunch = {
-                val data = getSampleDataListUseCase.invoke(maxLength = MAX_SAMPLE_TEXT_LENGTH)
-                val items = sampleDataListUiMapper.createListItems(data)
+                val data = getTripDataListUseCase()
+                val items = tripDataListUiMapper.createListItems(data)
 
                 _state.value = ScreenState.Content(
                     SampleDataListState(items = items)
@@ -44,7 +44,6 @@ class SampleDataListViewModel @Inject constructor(
     }
 
     private companion object {
-        const val TAG = "SampleDataListViewModel"
-        const val MAX_SAMPLE_TEXT_LENGTH = 150
+        const val TAG = "TripDataListViewModel"
     }
 }

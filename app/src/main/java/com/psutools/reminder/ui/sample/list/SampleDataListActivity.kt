@@ -10,7 +10,7 @@ import com.psutools.reminder.base.arch.BaseActivity
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.lazyUnsafe
 import com.psutools.reminder.databinding.ActivitySampleDataListBinding
-import com.psutools.reminder.ui.sample.list.adapter.SampleDataListAdapter
+import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
 import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
@@ -25,8 +25,8 @@ class SampleDataListActivity : BaseActivity<ActivitySampleDataListBinding>() {
         ActivitySampleDataListBinding.inflate(layoutInflater)
     }
 
-    private val viewModel: SampleDataListViewModel by viewModels<SampleDataListViewModel>()
-    private lateinit var sampleDataListAdapter: SampleDataListAdapter
+    private val viewModel: TripDataListViewModel by viewModels<TripDataListViewModel>()
+    private lateinit var sampleDataListAdapter: TripDataListAdapter
 
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
 
@@ -56,7 +56,7 @@ class SampleDataListActivity : BaseActivity<ActivitySampleDataListBinding>() {
     }
 
     private fun setupRecycler() {
-        sampleDataListAdapter = SampleDataListAdapter(
+        sampleDataListAdapter = TripDataListAdapter(
             onClickListener = onClickListener
         )
 

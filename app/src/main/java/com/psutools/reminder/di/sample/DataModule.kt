@@ -1,9 +1,10 @@
-package com.psutools.reminder.di
+package com.psutools.reminder.di.sample
+
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.psutools.reminder.BuildConfig
-import com.psutools.reminder.data.repository.TripDataRepositoryImpl
-import com.psutools.reminder.data.service.TripDataService
-import com.psutools.reminder.domain.repository.TripDataRepository
+import com.psutools.reminder.data.repository.sample.SampleDataRepositoryImpl
+import com.psutools.reminder.data.service.sample.SampleDataService
+import com.psutools.reminder.domain.repository.sample.SampleDataRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -22,14 +23,14 @@ abstract class DataModule {
 
     @Binds
     @Reusable
-    abstract fun bindTripDataRepository(impl: TripDataRepositoryImpl): TripDataRepository
+    abstract fun bindSampleDataRepository(impl: SampleDataRepositoryImpl): SampleDataRepository
 
     @Module
     @InstallIn(SingletonComponent::class)
     class Providers {
 
         @Provides
-        fun provideService(): TripDataService {
+        fun provideService(): SampleDataService {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
 
@@ -46,7 +47,7 @@ abstract class DataModule {
                     }.asConverterFactory("application/json".toMediaType())
                 )
                 .build()
-                .create(TripDataService::class.java)
+                .create(SampleDataService::class.java)
         }
     }
 }

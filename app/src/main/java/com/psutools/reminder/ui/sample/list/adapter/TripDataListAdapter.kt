@@ -3,14 +3,14 @@ package com.psutools.reminder.ui.sample.list.adapter
 import android.annotation.SuppressLint
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.psutools.reminder.base.delegates.BaseListItem
-import com.psutools.reminder.ui.sample.list.adapter.delegate.SampleDataListItemDelegate
+import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate
 
-class SampleDataListAdapter(
+class TripDataListAdapter(
     onClickListener: (text: String) -> Unit,
 ) : ListDelegationAdapter<List<BaseListItem>>() {
 
     init {
-        delegatesManager.addDelegate(SampleDataListItemDelegate(onClickListener))
+        delegatesManager.addDelegate(TripDataListItemDelegate(onClickListener))
     }
 
     @SuppressLint("NotifyDataSetChanged")

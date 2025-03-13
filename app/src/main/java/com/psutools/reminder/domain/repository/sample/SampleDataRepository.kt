@@ -1,6 +1,6 @@
-package com.psutools.reminder.domain.repository
+package com.psutools.reminder.domain.repository.sample
 
-import com.psutools.reminder.domain.model.SampleData
+import com.psutools.reminder.domain.model.sample.SampleData
 
 interface SampleDataRepository {
 

@@ -2,7 +2,7 @@ package com.psutools.reminder.app.navigation
 
 import android.content.Context
 import android.content.Intent
-import com.psutools.reminder.ui.sample.details.SampleDataDetailsActivity
+import com.psutools.reminder.ui.sample.details.sample.SampleDataDetailsActivity
 import com.psutools.reminder.ui.sample.list.SampleDataListActivity
 import javax.inject.Inject
 

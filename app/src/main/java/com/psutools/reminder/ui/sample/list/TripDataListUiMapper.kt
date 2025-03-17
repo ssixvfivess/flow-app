@@ -10,15 +10,27 @@ class TripDataListUiMapper @Inject constructor() {
 
     fun createListItems(dataList: List<TripData>): List<BaseListItem> {
         return dataList.map { data ->
-            TripDataListItem(getFullRouteAsString(data.route))
+            TripDataListItem(
+                getFirstRouteString(data.route),
+                getLastRouteString(data.route)
+            )
         }
     }
 
-    private fun getFullRouteAsString(route: List<PointData>): String {
-        val nameRoute = StringBuilder()
-        for (point in route){
-            nameRoute.append(point.name).append(" → ")
-        }
-        return nameRoute.removeSuffix(" → ").toString()
+//    private fun getFullRouteAsString(route: List<PointData>): String {
+//        val nameRoute = StringBuilder()
+//        for (point in route){
+//            nameRoute.append(point.name).append(" → ")
+//        }
+//        return nameRoute.removeSuffix(" → ").toString()
+//    }
+
+
+    private fun getFirstRouteString(route: List<PointData>): String {
+        return route.first().name
+    }
+
+    private fun getLastRouteString(route: List<PointData>): String {
+        return route.last().name
     }
 }

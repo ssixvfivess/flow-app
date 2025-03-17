@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.details
+package com.psutools.reminder.ui.sample.details.sample
 
 import com.psutools.reminder.domain.model.sample.SampleData
 import javax.inject.Inject

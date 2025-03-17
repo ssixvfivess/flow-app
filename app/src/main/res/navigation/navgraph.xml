@@ -18,7 +18,7 @@
 
     <activity
         android:id="@+id/sampleDataDetailsActivity"
-        android:name="com.psutools.reminder.ui.sample.details.SampleDataDetailsActivity"
+        android:name="com.psutools.reminder.ui.sample.details.sample.SampleDataDetailsActivity"
         android:label="SampleDataDetailsActivity" />
     <activity
         android:id="@+id/sampleDataListActivity"

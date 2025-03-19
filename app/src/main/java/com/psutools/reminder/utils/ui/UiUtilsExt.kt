@@ -1,6 +1,7 @@
 package com.psutools.reminder.utils.ui
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorRes
@@ -31,3 +32,8 @@ fun Context.getDrawableCompat(@DrawableRes drawable: Int): Drawable =
 
 fun Context.getColorCompat(@ColorRes color: Int) =
     ContextCompat.getColor(this, color)
+
+fun isDarkMode(context: Context): Boolean {
+    val darkModeFlag = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+    return darkModeFlag == Configuration.UI_MODE_NIGHT_YES
+}

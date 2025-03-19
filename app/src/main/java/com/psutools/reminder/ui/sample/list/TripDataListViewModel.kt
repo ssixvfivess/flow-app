@@ -29,10 +29,10 @@ class TripDataListViewModel @Inject constructor(
     fun loadData() {
         viewModelScope.tryLaunch(
             doOnLaunch = {
-                val data = getTripDataListUseCase()
-                val items = tripDataListUiMapper.createListItems(data)
 
-                _state.value = ScreenState.Content(
+                val data = getTripDataListUseCase() // загружаем данные
+                val items = tripDataListUiMapper.createListItems(data) // преобразуем данные в список элементов
+                _state.value = ScreenState.Content( // обновляем стейт
                     SampleDataListState(items = items)
                 )
             },

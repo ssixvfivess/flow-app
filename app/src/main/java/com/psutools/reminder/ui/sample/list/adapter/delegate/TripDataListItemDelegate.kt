@@ -15,24 +15,26 @@ class TripDataListItemDelegate(
     override fun isForViewType(item: BaseListItem): Boolean = item is TripDataListItem
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        val viewBinding = ItemTripDataListBinding.inflate(LayoutInflater.from(parent.context),
-            parent, false)
+        val viewBinding = ItemTripDataListBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false)
         return ViewHolder(viewBinding)
     }
 
     override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
 
-            contentA.text = item.firstRoute
-            contentB.text = item.lastRoute
+            contentRoute.text = item.firstRoute
+//            contentB.text = item.lastRoute
 
-            contentA.setOnClickListener {
+            contentRoute.setOnClickListener {
                 onClickListener(item.firstRoute)
             }
 
-            contentB.setOnClickListener {
-                onClickListener(item.lastRoute)
-            }
+//            contentB.setOnClickListener {
+//                onClickListener(item.lastRoute)
+//            }
         }
     }
 

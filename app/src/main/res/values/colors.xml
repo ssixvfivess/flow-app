@@ -41,4 +41,6 @@
     <color name="rating_bad">#FF5106</color>
     <color name="soft_red">#FF6126</color>
     <color name="dark_red">#FF3B30</color>
+    <color name="psu_orange">#FF724C</color>
+    <color name="psu_gray">#F8F9FD</color>
 </resources>

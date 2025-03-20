@@ -25,16 +25,13 @@ class TripDataListItemDelegate(
     override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
 
-            contentRoute.text = item.firstRoute
-//            contentB.text = item.lastRoute
+            contentData.text = "Пятница, 7 марта" //ПРИМЕР для нормального отображения
+            contentName.text = "В вуз" //ПРИМЕР для нормального отображения
+            contentRoute.text = item.Route
 
             contentRoute.setOnClickListener {
-                onClickListener(item.firstRoute)
+                onClickListener(item.Route)
             }
-
-//            contentB.setOnClickListener {
-//                onClickListener(item.lastRoute)
-//            }
         }
     }
 

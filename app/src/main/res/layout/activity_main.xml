@@ -17,6 +17,7 @@
         app:navGraph="@navigation/nav_graph_1"
         app:defaultNavHost="true" />
 
+    <!--        Зачем нам тулбар? -->
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

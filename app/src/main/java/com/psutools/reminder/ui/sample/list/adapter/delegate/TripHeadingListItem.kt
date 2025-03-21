@@ -6,5 +6,5 @@ data class TripHeadingListItem(
     val heading: String
 ): BaseListItem {
 
-    override val id: String = "TripDataListItem-$heading"
+    override val id: String = "TripHeadingListItem-$heading"
 }

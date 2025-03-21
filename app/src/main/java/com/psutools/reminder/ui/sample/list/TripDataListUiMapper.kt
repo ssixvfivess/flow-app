@@ -16,7 +16,7 @@ class TripDataListUiMapper @Inject constructor() {
 
         items.addAll(dataList.map { data ->
             TripDataListItem(
-                Route = getFullRouteAsString(data.route)
+                route = getFullRouteAsString(data.route)
             )
         })
 
@@ -46,7 +46,7 @@ class TripDataListUiMapper @Inject constructor() {
 
 //items.addAll(dataList.map { data ->
 //    TripDataListItem(
-//        Route = getFirstRouteString(data.route),
+//        route = getFirstRouteString(data.route),
 //        lastRoute = getLastRouteString(data.route)
 //    )
 //})

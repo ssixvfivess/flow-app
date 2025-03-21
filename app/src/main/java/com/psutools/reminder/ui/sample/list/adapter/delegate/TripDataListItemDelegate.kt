@@ -18,7 +18,8 @@ class TripDataListItemDelegate(
         val viewBinding = ItemTripDataListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
-            false)
+            false
+        )
         return ViewHolder(viewBinding)
     }
 
@@ -27,10 +28,10 @@ class TripDataListItemDelegate(
 
             contentData.text = "Пятница, 7 марта" //ПРИМЕР для нормального отображения
             contentName.text = "В вуз" //ПРИМЕР для нормального отображения
-            contentRoute.text = item.Route
+            contentRoute.text = item.route
 
             contentRoute.setOnClickListener {
-                onClickListener(item.Route)
+                onClickListener(item.route)
             }
         }
     }

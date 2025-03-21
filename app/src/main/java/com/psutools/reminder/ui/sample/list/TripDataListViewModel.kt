@@ -20,8 +20,8 @@ class TripDataListViewModel @Inject constructor(
     private val tripDataListUiMapper: TripDataListUiMapper,
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<ScreenState<SampleDataListState>> = MutableStateFlow(ScreenState.Loading)
-    val state: Flow<ScreenState<SampleDataListState>> = _state.asStateFlow()
+    private val _state: MutableStateFlow<ScreenState<TripDataListState>> = MutableStateFlow(ScreenState.Loading)
+    val state: Flow<ScreenState<TripDataListState>> = _state.asStateFlow()
 
     val hasContent: Boolean
         get() = _state.value is ScreenState.Content
@@ -33,7 +33,7 @@ class TripDataListViewModel @Inject constructor(
                 val data = getTripDataListUseCase() // загружаем данные
                 val items = tripDataListUiMapper.createListItems(data) // преобразуем данные в список элементов
                 _state.value = ScreenState.Content( // обновляем стейт
-                    SampleDataListState(items = items)
+                    TripDataListState(items = items)
                 )
             },
             doOnError = { error ->

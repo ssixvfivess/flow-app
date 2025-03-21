@@ -2,8 +2,8 @@ package com.psutools.reminder.app.navigation
 
 import android.content.Context
 import android.content.Intent
+import com.psutools.reminder.ui.fragments.HomeFragment
 import com.psutools.reminder.ui.sample.details.sample.SampleDataDetailsActivity
-import com.psutools.reminder.ui.sample.list.SampleDataListActivity
 import javax.inject.Inject
 
 interface Router {
@@ -20,6 +20,6 @@ class RouterImpl @Inject constructor() : Router {
     }
 
     override fun createSampleDataListIntent(context: Context): Intent {
-        return SampleDataListActivity.createIntent(context)
+        return HomeFragment.createIntent(context)
     }
 }

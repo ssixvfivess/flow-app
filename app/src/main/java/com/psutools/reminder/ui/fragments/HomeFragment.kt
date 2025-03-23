@@ -1,14 +1,12 @@
 package com.psutools.reminder.ui.fragments
 
-import android.content.Context
-import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
-import com.psutools.reminder.databinding.HomeFragmentDataListBinding
+import com.psutools.reminder.databinding.FragmentHomeBinding
 import com.psutools.reminder.ui.sample.list.TripDataListState
 import com.psutools.reminder.ui.sample.list.TripDataListViewModel
 import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
@@ -20,10 +18,10 @@ import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<HomeFragmentDataListBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    override fun createViewBinding(): HomeFragmentDataListBinding {
-        return HomeFragmentDataListBinding.inflate(layoutInflater)
+    override fun createViewBinding(): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(layoutInflater)
     }
 
     private val viewModel: TripDataListViewModel by viewModels<TripDataListViewModel>()
@@ -87,12 +85,5 @@ class HomeFragment : BaseFragment<HomeFragmentDataListBinding>() {
 
     private val onClickListener = { text: String ->
         SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
-    }
-
-    companion object {
-
-        fun createIntent(context: Context): Intent {
-            return Intent(context, HomeFragment::class.java)
-        }
     }
 }

@@ -9,17 +9,11 @@ import javax.inject.Inject
 interface Router {
 
     fun createSampleDataDetailsIntent(context: Context): Intent
-
-    fun createSampleDataListIntent(context: Context): Intent
 }
 
 class RouterImpl @Inject constructor() : Router {
 
     override fun createSampleDataDetailsIntent(context: Context): Intent {
         return SampleDataDetailsActivity.createIntent(context)
-    }
-
-    override fun createSampleDataListIntent(context: Context): Intent {
-        return HomeFragment.createIntent(context)
     }
 }

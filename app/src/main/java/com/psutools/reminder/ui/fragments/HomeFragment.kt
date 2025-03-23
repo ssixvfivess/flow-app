@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentHomeBinding
-import com.psutools.reminder.ui.sample.list.SampleDataListState
+import com.psutools.reminder.ui.sample.list.TripDataListState
 import com.psutools.reminder.ui.sample.list.TripDataListViewModel
 import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
 import com.psutools.reminder.utils.ui.SnackbarManager
@@ -72,7 +72,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         )
     }
 
-    private fun showContent(stateData: SampleDataListState) {
+    private fun showContent(stateData: TripDataListState) {
         Handler(Looper.getMainLooper()).post {
             tripDataListAdapter.items = stateData.items
             contentStateSwitcher.switchState(ContentState.CONTENT)

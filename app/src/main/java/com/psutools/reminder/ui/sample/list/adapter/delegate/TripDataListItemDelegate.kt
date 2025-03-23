@@ -15,16 +15,23 @@ class TripDataListItemDelegate(
     override fun isForViewType(item: BaseListItem): Boolean = item is TripDataListItem
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        val viewBinding = ItemTripDataListBinding.inflate(LayoutInflater.from(parent.context),
-            parent, false)
+        val viewBinding = ItemTripDataListBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ViewHolder(viewBinding)
     }
 
     override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
-            content.text = item.text
-            content.setOnClickListener {
-                onClickListener(item.text)
+
+            contentData.text = "Пятница, 7 марта" //ПРИМЕР для нормального отображения
+            contentName.text = "В вуз" //ПРИМЕР для нормального отображения
+            contentRoute.text = item.route
+
+            contentRoute.setOnClickListener {
+                onClickListener(item.route)
             }
         }
     }

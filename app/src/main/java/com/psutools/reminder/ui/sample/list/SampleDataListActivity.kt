@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseActivity
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.lazyUnsafe
-import com.psutools.reminder.databinding.ActivitySampleDataListBinding
+import com.psutools.reminder.databinding.HomeFragmentDataListBinding
 import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
 import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
@@ -19,10 +19,10 @@ import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SampleDataListActivity : BaseActivity<ActivitySampleDataListBinding>() {
+class SampleDataListActivity : BaseActivity<HomeFragmentDataListBinding>() {
 
-    override val viewBinding: ActivitySampleDataListBinding by lazyUnsafe {
-        ActivitySampleDataListBinding.inflate(layoutInflater)
+    override val viewBinding: HomeFragmentDataListBinding by lazyUnsafe {
+        HomeFragmentDataListBinding.inflate(layoutInflater)
     }
 
     private val viewModel: TripDataListViewModel by viewModels<TripDataListViewModel>()

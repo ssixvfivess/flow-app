@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.details
+package com.psutools.reminder.ui.sample.details.sample
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

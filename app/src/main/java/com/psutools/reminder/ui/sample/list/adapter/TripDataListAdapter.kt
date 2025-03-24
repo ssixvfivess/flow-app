@@ -1,10 +1,9 @@
 package com.psutools.reminder.ui.sample.list.adapter
 
 import android.annotation.SuppressLint
-import androidx.appcompat.widget.SearchView.OnCloseListener
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.psutools.reminder.base.delegates.BaseListItem
-import com.psutools.reminder.ui.fragments.NotificationFragment
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItemDelegate
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItemDelegate
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItemDelegate
 
@@ -15,6 +14,7 @@ class TripDataListAdapter(
     init {
         delegatesManager.addDelegate(TripDataListItemDelegate(onClickListener))
         delegatesManager.addDelegate(TripHeadingListItemDelegate())
+        delegatesManager.addDelegate(TripCurrentDataItemDelegate(onClickListener))
     }
 
     @SuppressLint("NotifyDataSetChanged")

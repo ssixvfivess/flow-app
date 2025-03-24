@@ -3,6 +3,7 @@ package com.psutools.reminder.ui.sample.list.trip
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.domain.model.trip.PointData
 import com.psutools.reminder.domain.model.trip.TripData
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItem
 import javax.inject.Inject
@@ -15,7 +16,14 @@ class TripDataListUiMapper @Inject constructor() {
         items.add(TripHeadingListItem("Активные", notificationIcon = true))
 
 
+        val activeTripData = dataList.first()
+        items.add(
+            TripCurrentDataItem(route = getFullRouteAsString(activeTripData.route))
+            )
+
+
         items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
+
 
         items.addAll(dataList.map { data ->
             TripDataListItem(

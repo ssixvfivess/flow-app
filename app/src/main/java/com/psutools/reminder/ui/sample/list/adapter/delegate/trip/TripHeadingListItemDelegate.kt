@@ -32,6 +32,9 @@ class TripHeadingListItemDelegate : BaseItemAdapterDelegate<TripHeadingListItem,
                 notificationImage.visibility = View.GONE
             }
 
+            notificationImage.setOnClickListener{
+                TODO()
+            }
 
         }
     }

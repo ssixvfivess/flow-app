@@ -1,12 +1,13 @@
-package com.psutools.reminder.ui.sample.list.adapter.delegate
+package com.psutools.reminder.ui.sample.list.adapter.delegate.trip
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.databinding.ItemTripHeadingListBinding
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripHeadingListItemDelegate.HeaderViewHolder
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItemDelegate.HeaderViewHolder
 
 class TripHeadingListItemDelegate : BaseItemAdapterDelegate<TripHeadingListItem, HeaderViewHolder>() {
 
@@ -24,6 +25,14 @@ class TripHeadingListItemDelegate : BaseItemAdapterDelegate<TripHeadingListItem,
     override fun onBind(item: TripHeadingListItem, holder: HeaderViewHolder, payloads: List<Any>) {
         with(holder.binding){
             headingView.text = item.heading
+
+            if(item.notificationIcon){
+                notificationImage.visibility = View.VISIBLE
+            } else {
+                notificationImage.visibility = View.GONE
+            }
+
+
         }
     }
 

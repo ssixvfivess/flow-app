@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.list.adapter.delegate
+package com.psutools.reminder.ui.sample.list.adapter.delegate.trip
 
 import com.psutools.reminder.base.delegates.BaseListItem
 

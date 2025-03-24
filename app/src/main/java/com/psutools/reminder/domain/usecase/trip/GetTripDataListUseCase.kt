@@ -1,7 +1,7 @@
-package com.psutools.reminder.domain.usecase
+package com.psutools.reminder.domain.usecase.trip
 
-import com.psutools.reminder.domain.model.TripData
-import com.psutools.reminder.domain.repository.TripDataRepository
+import com.psutools.reminder.domain.model.trip.TripData
+import com.psutools.reminder.domain.repository.trip.TripDataRepository
 import javax.inject.Inject
 
 interface GetTripDataListUseCase {

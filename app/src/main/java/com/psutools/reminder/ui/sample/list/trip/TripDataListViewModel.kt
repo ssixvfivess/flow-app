@@ -1,10 +1,10 @@
-package com.psutools.reminder.ui.sample.list
+package com.psutools.reminder.ui.sample.list.trip
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.coroutines.CoroutineDispatchers
-import com.psutools.reminder.domain.usecase.GetTripDataListUseCase
+import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCase
 import com.psutools.reminder.utils.coroutines.tryLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.psutools.reminder.data.model
+package com.psutools.reminder.data.model.trip
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

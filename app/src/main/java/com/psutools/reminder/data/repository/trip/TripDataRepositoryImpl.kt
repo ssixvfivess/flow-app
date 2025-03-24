@@ -1,9 +1,9 @@
-package com.psutools.reminder.data.repository
+package com.psutools.reminder.data.repository.trip
 
-import com.psutools.reminder.data.mapper.TripDataMapper
-import com.psutools.reminder.data.service.TripDataService
-import com.psutools.reminder.domain.model.TripData
-import com.psutools.reminder.domain.repository.TripDataRepository
+import com.psutools.reminder.data.mapper.trip.TripDataMapper
+import com.psutools.reminder.data.service.trip.TripDataService
+import com.psutools.reminder.domain.model.trip.TripData
+import com.psutools.reminder.domain.repository.trip.TripDataRepository
 import javax.inject.Inject
 
 class TripDataRepositoryImpl @Inject constructor(

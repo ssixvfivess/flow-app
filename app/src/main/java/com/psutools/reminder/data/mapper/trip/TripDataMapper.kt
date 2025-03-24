@@ -1,10 +1,10 @@
-package com.psutools.reminder.data.mapper
+package com.psutools.reminder.data.mapper.trip
 
-import com.psutools.reminder.data.model.PointDataApi
-import com.psutools.reminder.data.model.TripDataApi
-import com.psutools.reminder.domain.model.PointData
-import com.psutools.reminder.domain.model.TransportData
-import com.psutools.reminder.domain.model.TripData
+import com.psutools.reminder.data.model.trip.PointDataApi
+import com.psutools.reminder.data.model.trip.TripDataApi
+import com.psutools.reminder.domain.model.trip.PointData
+import com.psutools.reminder.domain.model.trip.TransportData
+import com.psutools.reminder.domain.model.trip.TripData
 import java.util.UUID
 import javax.inject.Inject
 

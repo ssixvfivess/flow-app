@@ -1,10 +1,12 @@
 package com.psutools.reminder.ui.sample.list.adapter
 
 import android.annotation.SuppressLint
+import androidx.appcompat.widget.SearchView.OnCloseListener
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.psutools.reminder.base.delegates.BaseListItem
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripHeadingListItemDelegate
+import com.psutools.reminder.ui.fragments.NotificationFragment
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItemDelegate
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItemDelegate
 
 class TripDataListAdapter(
     onClickListener: (text: String) -> Unit,

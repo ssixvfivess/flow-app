@@ -1,6 +1,6 @@
-package com.psutools.reminder.data.service
+package com.psutools.reminder.data.service.trip
 
-import com.psutools.reminder.data.model.GetTripsListResponseApi
+import com.psutools.reminder.data.model.trip.GetTripsListResponseApi
 import retrofit2.http.GET
 
 interface TripDataService {

@@ -1,6 +1,5 @@
-package com.psutools.reminder.domain.model
+package com.psutools.reminder.domain.model.trip
 
-import com.psutools.reminder.data.model.PointDataApi
 import java.util.UUID
 
 

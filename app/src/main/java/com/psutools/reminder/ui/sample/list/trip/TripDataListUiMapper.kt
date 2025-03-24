@@ -1,10 +1,10 @@
-package com.psutools.reminder.ui.sample.list
+package com.psutools.reminder.ui.sample.list.trip
 
 import com.psutools.reminder.base.delegates.BaseListItem
-import com.psutools.reminder.domain.model.PointData
-import com.psutools.reminder.domain.model.TripData
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItem
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripHeadingListItem
+import com.psutools.reminder.domain.model.trip.PointData
+import com.psutools.reminder.domain.model.trip.TripData
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItem
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItem
 import javax.inject.Inject
 
 class TripDataListUiMapper @Inject constructor() {
@@ -12,7 +12,10 @@ class TripDataListUiMapper @Inject constructor() {
     fun createListItems(dataList: List<TripData>): List<BaseListItem> {
         val items = mutableListOf<BaseListItem>()
 
-        items.add(TripHeadingListItem("На этой неделе"))
+        items.add(TripHeadingListItem("Активные", notificationIcon = true))
+
+
+        items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
 
         items.addAll(dataList.map { data ->
             TripDataListItem(

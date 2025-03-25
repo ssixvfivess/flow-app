@@ -20,6 +20,7 @@ class TripDataMapper @Inject constructor() {
             id = UUID.fromString(apiModel.id),
             userId = UUID.fromString(apiModel.userId),
             status = TripStatusData.fromValueStatus(apiModel.status),
+            name = apiModel.name,
             route = mapPointListToDomain(apiModel.route),
             transportType = TransportData.fromValueTransport(apiModel.transportType),
             overtime = apiModel.overtime,

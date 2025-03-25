@@ -8,6 +8,7 @@ data class TripData(
     val id: UUID,
     val userId: UUID,
     val status: TripStatusData,
+    val name: String,
     val route: List<PointData>,
     val transportType: TransportData,
     val overtime: Int,

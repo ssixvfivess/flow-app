@@ -19,21 +19,29 @@ class TripDataListUiMapper @Inject constructor() {
         items.add(TripHeadingListItem("Активные", notificationIcon = true))
 
 
-        val activeTrips = dataList.filter {it.status == TripStatusData.ACTIVE}
-        for ( activeTrip in activeTrips) {
+        val activeTrips = dataList.filter { it.status == TripStatusData.ACTIVE }
+        for (activeTrip in activeTrips) {
             items.add(
-                TripCurrentDataItem(route = getFullRouteAsString(activeTrip.route), arrivalDateTime = getRouteDate(activeTrip))
+                TripCurrentDataItem(
+                    name = activeTrip.name,
+                    route = getFullRouteAsString(activeTrip.route),
+                    arrivalDateTime = getRouteDate(activeTrip)
+                )
             )
         }
 
         items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
 
-
-        items.addAll(dataList.map { data ->
-            TripDataListItem(
-                route = getFullRouteAsString(data.route), arrivalDateTime = getRouteDate(data)
+        val upcomingTrips = dataList.subtract(activeTrips)
+        for (upcomingTrip in upcomingTrips) {
+            items.add(
+                TripDataListItem(
+                    name = upcomingTrip.name,
+                    route = getFullRouteAsString(upcomingTrip.route),
+                    arrivalDateTime = getRouteDate(upcomingTrip)
+                )
             )
-        })
+        }
 
         return items
     }
@@ -51,7 +59,6 @@ class TripDataListUiMapper @Inject constructor() {
         return formatter.print(data.arrivalDateTime)
     }
 }
-
 
 
 //ЧЕРНОВИКИ//

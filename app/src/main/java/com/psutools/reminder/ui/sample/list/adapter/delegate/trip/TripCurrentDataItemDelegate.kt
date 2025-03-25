@@ -26,7 +26,7 @@ class TripCurrentDataItemDelegate(
     override fun onBind(item: TripCurrentDataItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
                 contentData.text = item.arrivalDateTime
-                contentName.text = "PSU"
+                contentName.text = item.name
                 contentRoute.text = item.route
 
                 contentRoute.setOnClickListener {

@@ -27,7 +27,7 @@ class TripDataListItemDelegate(
         with(holder.viewBinding) {
 
             contentData.text = item.arrivalDateTime
-            contentName.text = "В вуз" //ПРИМЕР для нормального отображения
+            contentName.text = item.name
             contentRoute.text = item.route
 
             contentRoute.setOnClickListener {

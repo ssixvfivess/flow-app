@@ -15,6 +15,9 @@ data class TripDataApi(
     @SerialName("status")
     val status: String,
 
+    @SerialName("name")
+    val name: String,
+
     @SerialName("route")
     val route: List<PointDataApi>,
 

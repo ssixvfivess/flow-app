@@ -26,7 +26,7 @@ class TripDataListItemDelegate(
     override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
 
-            contentData.text = "Пятница, 7 марта" //ПРИМЕР для нормального отображения
+            contentData.text = item.arrivalDateTime
             contentName.text = "В вуз" //ПРИМЕР для нормального отображения
             contentRoute.text = item.route
 

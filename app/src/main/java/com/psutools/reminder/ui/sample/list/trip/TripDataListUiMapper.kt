@@ -31,7 +31,7 @@ class TripDataListUiMapper @Inject constructor() {
 
         items.addAll(dataList.map { data ->
             TripDataListItem(
-                route = getFullRouteAsString(data.route)
+                route = getFullRouteAsString(data.route), arrivalDateTime = getRouteDate(data)
             )
         })
 

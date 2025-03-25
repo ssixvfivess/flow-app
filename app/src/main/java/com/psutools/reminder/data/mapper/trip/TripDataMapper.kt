@@ -7,11 +7,13 @@ import com.psutools.reminder.domain.model.trip.TransportData
 import com.psutools.reminder.domain.model.trip.TripData
 import com.psutools.reminder.domain.model.trip.TripStatusData
 import org.joda.time.DateTime
-import org.joda.time.format.ISODateTimeFormat
+import org.joda.time.format.DateTimeFormat
 import java.util.UUID
 import javax.inject.Inject
 
 class TripDataMapper @Inject constructor() {
+
+    private val pattern = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ")
 
     private fun toDomain(apiModel: TripDataApi): TripData {
         return TripData(
@@ -21,9 +23,8 @@ class TripDataMapper @Inject constructor() {
             route = mapPointListToDomain(apiModel.route),
             transportType = TransportData.fromValueTransport(apiModel.transportType),
             overtime = apiModel.overtime,
-            arrivalDateTime = DateTime.parse(apiModel.arrivalDateTime, ISODateTimeFormat.dateTime()),
-            departureDateTime = DateTime.parse(apiModel.departureDateTime, ISODateTimeFormat.dateTime())
-
+            arrivalDateTime = DateTime.parse(apiModel.arrivalDateTime, pattern),
+            departureDateTime = DateTime.parse(apiModel.departureDateTime, pattern)
         )
     }
 

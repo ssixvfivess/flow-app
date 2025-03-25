@@ -8,6 +8,6 @@ enum class TripStatusData {
 
     companion object {
         fun fromValueStatus(value: String) : TripStatusData =
-            TripStatusData.entries.find { it.name == value } ?: UNKNOWN
+            TripStatusData.entries.find { it.name == value.uppercase() } ?: UNKNOWN
     }
 }

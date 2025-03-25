@@ -10,7 +10,7 @@ enum class TransportData {
     UNKNOWN;
 
     companion object {
-        fun fromValue(value: String) : TransportData =
+        fun fromValueTransport(value: String) : TransportData =
             TransportData.entries.find { it.name == value } ?: UNKNOWN
     }
 }

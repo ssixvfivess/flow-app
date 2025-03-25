@@ -3,9 +3,12 @@ package com.psutools.reminder.ui.sample.list.trip
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.domain.model.trip.PointData
 import com.psutools.reminder.domain.model.trip.TripData
+import com.psutools.reminder.domain.model.trip.TripStatusData
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItem
+import org.joda.time.format.DateTimeFormat
+import java.util.Locale
 import javax.inject.Inject
 
 class TripDataListUiMapper @Inject constructor() {
@@ -16,11 +19,12 @@ class TripDataListUiMapper @Inject constructor() {
         items.add(TripHeadingListItem("Активные", notificationIcon = true))
 
 
-        val activeTripData = dataList.first()
-        items.add(
-            TripCurrentDataItem(route = getFullRouteAsString(activeTripData.route))
+        val activeTrips = dataList.filter {it.status == TripStatusData.ACTIVE}
+        for ( activeTrip in activeTrips) {
+            items.add(
+                TripCurrentDataItem(route = getFullRouteAsString(activeTrip.route), arrivalDateTime = getRouteDate(activeTrip))
             )
-
+        }
 
         items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
 
@@ -40,6 +44,11 @@ class TripDataListUiMapper @Inject constructor() {
         } else {
             route.joinToString(" → ") { it.name }
         }
+    }
+
+    private fun getRouteDate(data: TripData): String {
+        val formatter = DateTimeFormat.forPattern("EEEE, d MMMM").withLocale(Locale("ru"))
+        return formatter.print(data.arrivalDateTime)
     }
 }
 

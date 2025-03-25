@@ -4,4 +4,6 @@
     <string name="routes_fragment">Поездки</string>
     <string name="history_fragment">История</string>
     <string name="profile_fragment">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

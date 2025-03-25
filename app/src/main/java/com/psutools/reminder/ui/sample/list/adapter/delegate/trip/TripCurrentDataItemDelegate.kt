@@ -25,16 +25,15 @@ class TripCurrentDataItemDelegate(
 
     override fun onBind(item: TripCurrentDataItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
+                contentData.text = item.arrivalDateTime
+                contentName.text = "PSU"
+                contentRoute.text = item.route
 
-            contentData.text = "Пятница, 28 марта"
-            contentName.text = "В ПГНИУ"
-            contentRoute.text = item.route
-
-            contentRoute.setOnClickListener {
-                onClickListener(item.route)
+                contentRoute.setOnClickListener {
+                    onClickListener(item.route)
+                }
             }
         }
-    }
 
     class ViewHolder(val viewBinding: ItemCurrentTripBinding) : RecyclerView.ViewHolder(viewBinding.root)
 }

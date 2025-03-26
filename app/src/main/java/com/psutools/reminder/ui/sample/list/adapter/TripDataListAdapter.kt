@@ -5,6 +5,7 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItemDelegate
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItemDelegate
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripEmptyListMessageDelegate
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItemDelegate
 
 class TripDataListAdapter(
@@ -15,6 +16,7 @@ class TripDataListAdapter(
         delegatesManager.addDelegate(TripDataListItemDelegate(onClickListener))
         delegatesManager.addDelegate(TripHeadingListItemDelegate())
         delegatesManager.addDelegate(TripCurrentDataItemDelegate(onClickListener))
+        delegatesManager.addDelegate(TripEmptyListMessageDelegate())
     }
 
     @SuppressLint("NotifyDataSetChanged")

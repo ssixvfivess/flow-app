@@ -6,6 +6,7 @@ import com.psutools.reminder.domain.model.trip.TripData
 import com.psutools.reminder.domain.model.trip.TripStatusData
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItem
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItem
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripEmptyListMessage
 import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItem
 import org.joda.time.format.DateTimeFormat
 import java.util.Locale
@@ -20,28 +21,40 @@ class TripDataListUiMapper @Inject constructor() {
 
 
         val activeTrips = dataList.filter { it.status == TripStatusData.ACTIVE }
-        for (activeTrip in activeTrips) {
-            items.add(
-                TripCurrentDataItem(
-                    name = activeTrip.name,
-                    route = getFullRouteAsString(activeTrip.route),
-                    arrivalDateTime = getRouteDate(activeTrip)
+
+        if(activeTrips.isEmpty()) {
+
+            items.add(TripEmptyListMessage("Активных поездок нет"))
+        }else{
+            for (activeTrip in activeTrips) {
+                items.add(
+                    TripCurrentDataItem(
+                        name = activeTrip.name,
+                        route = getFullRouteAsString(activeTrip.route),
+                        arrivalDateTime = getRouteDate(activeTrip)
+                    )
                 )
-            )
+            }
         }
 
         items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
 
         val upcomingTrips = dataList.subtract(activeTrips)
-        for (upcomingTrip in upcomingTrips) {
-            items.add(
-                TripDataListItem(
-                    name = upcomingTrip.name,
-                    route = getFullRouteAsString(upcomingTrip.route),
-                    arrivalDateTime = getRouteDate(upcomingTrip),
-                    timeStart = getStartRouteTime(upcomingTrip)
+
+        if(upcomingTrips.isEmpty()) {
+
+            items.add(TripEmptyListMessage("Поездок на этой неделе нет"))
+        }else{
+            for (upcomingTrip in upcomingTrips) {
+                items.add(
+                    TripDataListItem(
+                        name = upcomingTrip.name,
+                        route = getFullRouteAsString(upcomingTrip.route),
+                        arrivalDateTime = getRouteDate(upcomingTrip),
+                        timeStart = getStartRouteTime(upcomingTrip)
+                    )
                 )
-            )
+            }
         }
 
         return items

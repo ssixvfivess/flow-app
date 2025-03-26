@@ -29,6 +29,9 @@ class TripDataListItemDelegate(
             contentData.text = item.arrivalDateTime
             contentName.text = item.name
             contentRoute.text = item.route
+            contentRouteTime.text = item.timeStart
+
+
 
             contentRoute.setOnClickListener {
                 onClickListener(item.route)

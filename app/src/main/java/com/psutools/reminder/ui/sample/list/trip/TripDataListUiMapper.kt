@@ -38,7 +38,8 @@ class TripDataListUiMapper @Inject constructor() {
                 TripDataListItem(
                     name = upcomingTrip.name,
                     route = getFullRouteAsString(upcomingTrip.route),
-                    arrivalDateTime = getRouteDate(upcomingTrip)
+                    arrivalDateTime = getRouteDate(upcomingTrip),
+                    timeStart = getStartRouteTime(upcomingTrip)
                 )
             )
         }
@@ -56,6 +57,11 @@ class TripDataListUiMapper @Inject constructor() {
 
     private fun getRouteDate(data: TripData): String {
         val formatter = DateTimeFormat.forPattern("EEEE, d MMMM").withLocale(Locale("ru"))
+        return formatter.print(data.arrivalDateTime)
+    }
+
+    private fun getStartRouteTime(data: TripData): String {
+        val formatter = DateTimeFormat.forPattern("HH:mm")
         return formatter.print(data.arrivalDateTime)
     }
 }

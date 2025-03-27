@@ -4,6 +4,10 @@
     <string name="routes_fragment">Поездки</string>
     <string name="history_fragment">История</string>
     <string name="profile_fragment">Профиль</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="now_text_widget">Сейчас</string>
+    <string name="active_heading">Активные</string>
+    <string name="no_active_trips">Активных поездок нет</string>
+    <string name="this_week_heading">На этой неделе</string>
+    <string name="no_trips_this_week">Поездок на этой неделе нет</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

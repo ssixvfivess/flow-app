@@ -3,6 +3,7 @@ package com.psutools.reminder.base
 import android.content.Context
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 interface ResourceProvider {
@@ -15,7 +16,7 @@ interface ResourceProvider {
 }
 
 class ResourceProviderImpl @Inject constructor(
-    private val context: Context
+    @ApplicationContext private val context: Context
 ) : ResourceProvider {
 
     override fun getString(@StringRes res: Int, vararg args: Any): String {

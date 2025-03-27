@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,10 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/psu_widget_gray"
         app:cardCornerRadius="30dp"
         app:cardElevation="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +71,47 @@
                 tools:text="Lorem ipsum"
                 android:textColor="@color/black"
                 app:fontFamily="@font/open_sans_medium"/>
+
+            <ImageView
+                android:id="@+id/content_transport"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="52dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/content_small_widget"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_trips_type" />
+
+            <ImageView
+                android:id="@+id/content_small_widget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="52dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_trips_time" />
+
+            <TextView
+                android:id="@+id/content_route_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/psu_orange"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/content_small_widget"
+                app:layout_constraintEnd_toEndOf="@+id/content_small_widget"
+                app:layout_constraintStart_toStartOf="@+id/content_small_widget"
+                app:layout_constraintTop_toTopOf="@+id/content_small_widget" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

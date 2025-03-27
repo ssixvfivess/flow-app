@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.list.adapter.delegate
+package com.psutools.reminder.ui.sample.list.adapter.delegate.trip
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.databinding.ItemTripDataListBinding
-import com.psutools.reminder.ui.sample.list.adapter.delegate.TripDataListItemDelegate.ViewHolder
+import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItemDelegate.ViewHolder
 
 class TripDataListItemDelegate(
     private val onClickListener: (text: String) -> Unit,
@@ -26,9 +26,12 @@ class TripDataListItemDelegate(
     override fun onBind(item: TripDataListItem, holder: ViewHolder, payloads: List<Any>) {
         with(holder.viewBinding) {
 
-            contentData.text = "Пятница, 7 марта" //ПРИМЕР для нормального отображения
-            contentName.text = "В вуз" //ПРИМЕР для нормального отображения
+            contentData.text = item.arrivalDateTime
+            contentName.text = item.name
             contentRoute.text = item.route
+            contentRouteTime.text = item.timeStart
+
+
 
             contentRoute.setOnClickListener {
                 onClickListener(item.route)

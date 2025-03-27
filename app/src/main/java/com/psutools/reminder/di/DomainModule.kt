@@ -1,7 +1,7 @@
 package com.psutools.reminder.di
 
-import com.psutools.reminder.domain.usecase.GetTripDataListUseCase
-import com.psutools.reminder.domain.usecase.GetTripDataListUseCaseImpl
+import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCase
+import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable

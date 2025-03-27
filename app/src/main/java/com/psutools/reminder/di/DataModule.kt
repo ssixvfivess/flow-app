@@ -1,9 +1,9 @@
 package com.psutools.reminder.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.psutools.reminder.BuildConfig
-import com.psutools.reminder.data.repository.TripDataRepositoryImpl
-import com.psutools.reminder.data.service.TripDataService
-import com.psutools.reminder.domain.repository.TripDataRepository
+import com.psutools.reminder.data.repository.trip.TripDataRepositoryImpl
+import com.psutools.reminder.data.service.trip.TripDataService
+import com.psutools.reminder.domain.repository.trip.TripDataRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

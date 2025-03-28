@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface TripDataService {
 
-    @GET("/v1/routes-service/trips")
+    @GET("/v2/routes-service/trips")
     suspend fun getTripsList(): GetTripsListResponseApi
 
 }

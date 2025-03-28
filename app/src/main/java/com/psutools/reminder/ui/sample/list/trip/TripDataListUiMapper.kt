@@ -21,19 +21,22 @@ class TripDataListUiMapper @Inject constructor(
     fun createListItems(dataList: List<TripData>): List<BaseListItem> {
         val items = mutableListOf<BaseListItem>()
 
-        items.add(TripHeadingListItem(
-            heading = resourceProvider.getString(R.string.active_heading),
-            notificationIcon = true
+        items.add(
+            TripHeadingListItem(
+                heading = resourceProvider.getString(R.string.active_heading),
+                notificationIcon = true
             )
         )
 
 
         val activeTrips = dataList.filter { it.status == TripStatusData.ACTIVE }
-        if(activeTrips.isEmpty()) {
-            items.add(TripEmptyListMessage(
-                message = resourceProvider.getString(R.string.no_active_trips)
-            ))
-        }else{
+        if (activeTrips.isEmpty()) {
+            items.add(
+                TripEmptyListMessage(
+                    message = resourceProvider.getString(R.string.no_active_trips)
+                )
+            )
+        } else {
             for (activeTrip in activeTrips) {
                 items.add(
                     TripCurrentDataItem(
@@ -45,15 +48,17 @@ class TripDataListUiMapper @Inject constructor(
             }
         }
 
-        items.add(TripHeadingListItem(heading = resourceProvider.getString(R.string.this_week_heading),
-            notificationIcon = false
+        items.add(
+            TripHeadingListItem(
+                heading = resourceProvider.getString(R.string.this_week_heading),
+                notificationIcon = false
             )
         )
 
         val upcomingTrips = dataList.subtract(activeTrips)
-        if(upcomingTrips.isEmpty()) {
+        if (upcomingTrips.isEmpty()) {
             items.add(TripEmptyListMessage(message = resourceProvider.getString(R.string.no_trips_this_week)))
-        }else{
+        } else {
             for (upcomingTrip in upcomingTrips) {
                 items.add(
                     TripDataListItem(

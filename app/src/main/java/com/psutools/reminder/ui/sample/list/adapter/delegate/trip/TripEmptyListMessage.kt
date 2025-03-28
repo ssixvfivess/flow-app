@@ -6,5 +6,5 @@ data class TripEmptyListMessage(
     val message: String
 ): BaseListItem {
 
-    override val id: String = "TripCurrentDataItem-$message"
+    override val id: String = "TripEmptyListMessage-$message"
 }

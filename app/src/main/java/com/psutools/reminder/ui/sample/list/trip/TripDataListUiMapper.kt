@@ -1,5 +1,7 @@
 package com.psutools.reminder.ui.sample.list.trip
 
+import com.psutools.reminder.R
+import com.psutools.reminder.base.ResourceProvider
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.domain.model.trip.PointData
 import com.psutools.reminder.domain.model.trip.TripData
@@ -12,20 +14,29 @@ import org.joda.time.format.DateTimeFormat
 import java.util.Locale
 import javax.inject.Inject
 
-class TripDataListUiMapper @Inject constructor() {
+class TripDataListUiMapper @Inject constructor(
+    private val resourceProvider: ResourceProvider
+) {
 
     fun createListItems(dataList: List<TripData>): List<BaseListItem> {
         val items = mutableListOf<BaseListItem>()
 
-        items.add(TripHeadingListItem("Активные", notificationIcon = true))
+        items.add(
+            TripHeadingListItem(
+                heading = resourceProvider.getString(R.string.active_heading),
+                notificationIcon = true
+            )
+        )
 
 
         val activeTrips = dataList.filter { it.status == TripStatusData.ACTIVE }
-
-        if(activeTrips.isEmpty()) {
-
-            items.add(TripEmptyListMessage("Активных поездок нет"))
-        }else{
+        if (activeTrips.isEmpty()) {
+            items.add(
+                TripEmptyListMessage(
+                    message = resourceProvider.getString(R.string.no_active_trips)
+                )
+            )
+        } else {
             for (activeTrip in activeTrips) {
                 items.add(
                     TripCurrentDataItem(
@@ -37,14 +48,17 @@ class TripDataListUiMapper @Inject constructor() {
             }
         }
 
-        items.add(TripHeadingListItem("На этой неделе", notificationIcon = false))
+        items.add(
+            TripHeadingListItem(
+                heading = resourceProvider.getString(R.string.this_week_heading),
+                notificationIcon = false
+            )
+        )
 
         val upcomingTrips = dataList.subtract(activeTrips)
-
-        if(upcomingTrips.isEmpty()) {
-
-            items.add(TripEmptyListMessage("Поездок на этой неделе нет"))
-        }else{
+        if (upcomingTrips.isEmpty()) {
+            items.add(TripEmptyListMessage(message = resourceProvider.getString(R.string.no_trips_this_week)))
+        } else {
             for (upcomingTrip in upcomingTrips) {
                 items.add(
                     TripDataListItem(

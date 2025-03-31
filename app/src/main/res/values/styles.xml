@@ -27,4 +27,10 @@
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="SquareFabStyle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+        <item name="fabSize">normal</item>
+    </style>
 </resources>

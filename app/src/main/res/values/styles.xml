@@ -33,4 +33,9 @@
         <item name="cornerSize">15dp</item>
         <item name="fabSize">normal</item>
     </style>
+
+    <style name="SquareCalendar" parent="">
+        <item name="android:selectedDateVerticalBar">@drawable/square_selection</item>
+    </style>
+
 </resources>

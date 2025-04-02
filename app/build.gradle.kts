@@ -108,4 +108,6 @@ dependencies {
     // SYSTEM UTILS
     implementation(libs.jodaTime)
     implementation(libs.ktxSerializationJson)
+
+    implementation (libs.material.v190)
 }

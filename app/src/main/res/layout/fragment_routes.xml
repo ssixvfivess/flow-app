@@ -22,7 +22,12 @@
 
             <include layout="@layout/item_routes_heading"/>
 
-            <include layout="@layout/calendar_routes"/>
+            <CalendarView
+            android:id="@+id/calendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minDate="01/01/2025"
+            android:maxDate="12/31/2030"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/content_recycler"

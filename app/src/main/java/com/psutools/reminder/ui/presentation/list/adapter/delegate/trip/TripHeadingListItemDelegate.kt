@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.list.adapter.delegate.trip
+package com.psutools.reminder.ui.presentation.list.adapter.delegate.trip
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.databinding.ItemTripHeadingListBinding
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItemDelegate.HeaderViewHolder
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripHeadingListItemDelegate.HeaderViewHolder
 
 class TripHeadingListItemDelegate : BaseItemAdapterDelegate<TripHeadingListItem, HeaderViewHolder>() {
 

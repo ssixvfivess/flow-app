@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentHomeBinding
-import com.psutools.reminder.ui.sample.list.trip.TripDataListState
-import com.psutools.reminder.ui.sample.list.trip.TripDataListViewModel
-import com.psutools.reminder.ui.sample.list.adapter.TripDataListAdapter
+import com.psutools.reminder.ui.presentation.list.trip.TripDataListState
+import com.psutools.reminder.ui.presentation.list.trip.TripDataListViewModel
+import com.psutools.reminder.ui.presentation.list.adapter.TripDataListAdapter
 import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher

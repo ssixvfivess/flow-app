@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentRoutesBinding
-import com.psutools.reminder.ui.presentation.list.trip.TripDataListState
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListAdapter
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListState
-import com.psutools.reminder.ui.presentation.routes.RoutesDataListViewModel
+import com.psutools.reminder.ui.presentation.routes.RoutesViewModel
 import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
@@ -28,42 +27,23 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
         return FragmentRoutesBinding.inflate(layoutInflater)
     }
 
-    override fun onResume() {
-        super.onResume()
-        setCalendarToCurrentDate()
+    private val viewModel: RoutesViewModel by viewModels<RoutesViewModel>()
+    private val onClickListener = { text: String ->
+        SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
     }
-
-    private fun setCalendarToCurrentDate() {
-        val today = Calendar.getInstance()
-        viewBinding.calendarView.date = today.timeInMillis
-    }
-
-    private val viewModel: RoutesDataListViewModel by viewModels<RoutesDataListViewModel>()
     private lateinit var routesDataListAdapter: RoutesDataListAdapter
-
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
 
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 
         setupRecycler()
+        setCalendarToCurrentDate()
         setupStateSwitcher(isFirstLaunch)
         setupCalendar()
 
         if (!isFirstLaunch) {
             viewModel.loadData()
-        }
-    }
-
-    private fun setupCalendar() {
-        viewBinding.calendarView.setOnDateChangeListener { _: CalendarView, year: Int, month: Int, dayOfMonth: Int ->
-            val selectedDate = DateTime()
-                .withYear(year)
-                .withMonthOfYear(month + 1)
-                .withDayOfMonth(dayOfMonth)
-                .withTimeAtStartOfDay()
-
-            viewModel.setSelectedDate(selectedDate)
         }
     }
 
@@ -86,17 +66,38 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
         viewBinding.contentRecycler.adapter = routesDataListAdapter
     }
 
+    private fun setCalendarToCurrentDate() {
+        val today = Calendar.getInstance()
+        viewBinding.calendarView.date = today.timeInMillis
+    }
+
     private fun setupStateSwitcher(isFirstLaunch: Boolean) {
         contentStateSwitcher = createContentStateSwitcher(
             initialState = if (isFirstLaunch) ContentState.LOADING else ContentState.CONTENT,
             mapper = { state ->
                 when (state) {
-                    ContentState.CONTENT -> listOf(viewBinding.contentRecycler)
+                    ContentState.CONTENT -> listOf(
+                        viewBinding.contentRecycler,
+                        viewBinding.calendarView, viewBinding.addFab
+                    )
+
                     ContentState.LOADING -> listOf(viewBinding.progress)
                     else -> emptyList()
                 }
             }
         )
+    }
+
+    private fun setupCalendar() {
+        viewBinding.calendarView.setOnDateChangeListener { _: CalendarView, year: Int, month: Int, dayOfMonth: Int ->
+            val selectedDate = DateTime()
+                .withYear(year)
+                .withMonthOfYear(month + 1)
+                .withDayOfMonth(dayOfMonth)
+                .withTimeAtStartOfDay()
+
+            viewModel.setSelectedDate(selectedDate)
+        }
     }
 
     private fun showContent(stateData: RoutesDataListState) {
@@ -108,9 +109,5 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)
-    }
-
-    private val onClickListener = { text: String ->
-        SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
     }
 }

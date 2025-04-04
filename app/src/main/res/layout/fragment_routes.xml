@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,25 +19,25 @@
             android:orientation="vertical"
             android:paddingBottom="16dp">
 
-            <include layout="@layout/item_routes_heading"/>
+            <include layout="@layout/item_routes_heading" />
 
             <CalendarView
-            android:id="@+id/calendar_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minDate="01/01/2025"
-            android:maxDate="12/31/2030"/>
+                android:id="@+id/calendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxDate="12/31/2030"
+                android:minDate="01/01/2025" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/content_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
-                tools:itemCount="8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="8"
                 tools:listitem="@layout/item_routes_data_list" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -49,13 +48,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:src="@drawable/ic_plus"
         app:backgroundTint="@color/psu_orange"
+        app:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_plus"
-        app:elevation="8dp"
-        app:tint="@color/white"
-        app:shapeAppearanceOverlay="@style/SquareFabStyle"/>
+        app:shapeAppearanceOverlay="@style/SquareFabStyle"
+        app:tint="@color/white" />
 
     <ProgressBar
         android:id="@+id/progress"

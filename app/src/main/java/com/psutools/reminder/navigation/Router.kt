@@ -2,8 +2,7 @@ package com.psutools.reminder.app.navigation
 
 import android.content.Context
 import android.content.Intent
-import com.psutools.reminder.ui.fragments.HomeFragment
-import com.psutools.reminder.ui.sample.details.sample.SampleDataDetailsActivity
+import com.psutools.reminder.ui.presentation.details.sample.SampleDataDetailsActivity
 import javax.inject.Inject
 
 interface Router {

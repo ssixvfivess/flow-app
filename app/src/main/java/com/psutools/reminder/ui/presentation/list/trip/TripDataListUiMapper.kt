@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.list.trip
+package com.psutools.reminder.ui.presentation.list.trip
 
 import com.psutools.reminder.R
 import com.psutools.reminder.base.ResourceProvider
@@ -6,10 +6,10 @@ import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.domain.model.trip.PointData
 import com.psutools.reminder.domain.model.trip.TripData
 import com.psutools.reminder.domain.model.trip.TripStatusData
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripCurrentDataItem
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItem
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripEmptyListMessage
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripHeadingListItem
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripCurrentDataItem
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripDataListItem
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripEmptyListMessage
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripHeadingListItem
 import org.joda.time.format.DateTimeFormat
 import java.util.Locale
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.list.adapter.delegate.trip
+package com.psutools.reminder.ui.presentation.list.adapter.delegate.trip
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.psutools.reminder.base.delegates.BaseItemAdapterDelegate
 import com.psutools.reminder.base.delegates.BaseListItem
 import com.psutools.reminder.databinding.ItemTripDataListBinding
-import com.psutools.reminder.ui.sample.list.adapter.delegate.trip.TripDataListItemDelegate.ViewHolder
+import com.psutools.reminder.ui.presentation.list.adapter.delegate.trip.TripDataListItemDelegate.ViewHolder
 
 class TripDataListItemDelegate(
     private val onClickListener: (text: String) -> Unit,

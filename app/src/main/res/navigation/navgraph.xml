@@ -18,10 +18,10 @@
 
     <activity
         android:id="@+id/sampleDataDetailsActivity"
-        android:name="com.psutools.reminder.ui.sample.details.sample.SampleDataDetailsActivity"
+        android:name="com.psutools.reminder.ui.presentation.details.sample.SampleDataDetailsActivity"
         android:label="SampleDataDetailsActivity" />
     <activity
         android:id="@+id/sampleDataListActivity"
-        android:name="com.psutools.reminder.ui.sample.list.SampleDataListActivity"
+        android:name="com.psutools.reminder.ui.presentation.list.SampleDataListActivity"
         android:label="SampleDataListActivity" />
 </navigation>

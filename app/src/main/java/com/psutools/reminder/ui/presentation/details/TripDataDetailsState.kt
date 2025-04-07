@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.details
+package com.psutools.reminder.ui.presentation.details
 
 data class TripDataDetailsState (
     val text: String,

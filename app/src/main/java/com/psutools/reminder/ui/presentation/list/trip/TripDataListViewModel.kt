@@ -1,10 +1,10 @@
-package com.psutools.reminder.ui.sample.details.sample
+package com.psutools.reminder.ui.presentation.list.trip
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.coroutines.CoroutineDispatchers
-import com.psutools.reminder.domain.usecase.sample.GetSampleDataUseCase
+import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCase
 import com.psutools.reminder.utils.coroutines.tryLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -14,14 +14,14 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SampleDataDetailsViewModel @Inject constructor(
-    private val getSampleDataUseCase: GetSampleDataUseCase,
+class TripDataListViewModel @Inject constructor(
+    private val getTripDataListUseCase: GetTripDataListUseCase,
     private val coroutineDispatchers: CoroutineDispatchers,
-    private val sampleDataDetailsUiMapper: SampleDataDetailsUiMapper,
+    private val tripDataListUiMapper: TripDataListUiMapper,
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<ScreenState<SampleDataDetailsState>> = MutableStateFlow(ScreenState.Loading)
-    val state: Flow<ScreenState<SampleDataDetailsState>> = _state.asStateFlow()
+    private val _state: MutableStateFlow<ScreenState<TripDataListState>> = MutableStateFlow(ScreenState.Loading)
+    val state: Flow<ScreenState<TripDataListState>> = _state.asStateFlow()
 
     val hasContent: Boolean
         get() = _state.value is ScreenState.Content
@@ -29,11 +29,11 @@ class SampleDataDetailsViewModel @Inject constructor(
     fun loadData() {
         viewModelScope.tryLaunch(
             doOnLaunch = {
-                val data = getSampleDataUseCase.invoke(maxLength = MAX_SAMPLE_TEXT_LENGTH)
-                val details = sampleDataDetailsUiMapper.createDetails(data)
 
-                _state.value = ScreenState.Content(
-                    SampleDataDetailsState(text = details)
+                val data = getTripDataListUseCase() // загружаем данные
+                val items = tripDataListUiMapper.createListItems(data) // преобразуем данные в список элементов
+                _state.value = ScreenState.Content( // обновляем стейт
+                    TripDataListState(items = items)
                 )
             },
             doOnError = { error ->
@@ -44,7 +44,6 @@ class SampleDataDetailsViewModel @Inject constructor(
     }
 
     private companion object {
-        const val TAG = "SampleDataDetailsViewModel"
-        const val MAX_SAMPLE_TEXT_LENGTH = 150
+        const val TAG = "TripDataListViewModel"
     }
 }

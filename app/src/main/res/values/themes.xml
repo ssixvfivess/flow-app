@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">@color/bg_profile_field_outlined</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/psu_orange</item>
+        <item name="colorSecondaryVariant">@color/psu_orange</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/psu_orange</item>

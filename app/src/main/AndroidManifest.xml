@@ -30,10 +30,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.sample.details.sample.SampleDataDetailsActivity"
+            android:name=".ui.presentation.details.sample.SampleDataDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.sample.list.SampleDataListActivity"
+            android:name=".ui.presentation.list.sample.SampleDataListActivity"
             android:exported="false" />
 
     </application>

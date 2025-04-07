@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.sample.details.sample
+package com.psutools.reminder.ui.presentation.details.sample
 
 import android.content.Context
 import android.content.Intent

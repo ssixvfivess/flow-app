@@ -1,4 +1,4 @@
-package com.psutools.reminder.ui.main
+package com.psutools.reminder.ui.activities
 
 import android.graphics.Color
 import android.os.Build

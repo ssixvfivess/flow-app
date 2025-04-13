@@ -11,7 +11,6 @@
     <color name="primary_icons">#222222</color>
     <color name="primary_text">#222222</color>
     <color name="secondary_text">#909090</color>
-    <color name="secondary_icons">#808080</color>
     <color name="text_input_color">#909090</color>
     <color name="outline_light">#E0E0E0</color>
     <color name="text_input_error">@color/dark_red</color>
@@ -42,6 +41,10 @@
     <color name="soft_red">#FF6126</color>
     <color name="dark_red">#FF3B30</color>
     <color name="psu_orange">#FF724C</color>
+    <color name="psu_yellow">#FCC050</color>
     <color name="psu_widget_gray">#F8F9FD</color>
     <color name="psu_message_gray">#A3A5A8</color>
+    <color name="psu_back_button">#808080</color>
+    <color name="psu_details_background">#FAFAFA</color>
+    <color name="psu_details_heading_toolbar">#353A40</color>
 </resources>

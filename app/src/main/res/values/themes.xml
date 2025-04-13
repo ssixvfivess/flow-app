@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Template" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/psu_orange</item>
+        <item name="colorPrimary">@color/psu_yellow</item>
         <item name="colorPrimaryVariant">@color/bg_profile_field_outlined</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

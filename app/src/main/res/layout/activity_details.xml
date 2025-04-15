@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- NestedScrollView занимает все пространство под Toolbar -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -33,14 +32,14 @@
             android:orientation="vertical"
             android:paddingBottom="16dp">
 
-            <!-- RecyclerView с wrap_content -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:paddingBottom="16dp"
-                tools:listitem=""/>
+                tools:listitem="@layout/item_details_route_line"
+                tools:itemCount="3"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

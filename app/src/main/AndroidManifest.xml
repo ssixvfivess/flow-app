@@ -29,12 +29,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".ui.presentation.details.sample.SampleDataDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.presentation.list.sample.SampleDataListActivity"
-            android:exported="false" />
+            android:name="com.psutools.reminder.ui.sample.details.DetailsActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

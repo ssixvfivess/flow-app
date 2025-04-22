@@ -101,11 +101,10 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
     }
 
     private fun showContent(stateData: RoutesDataListState) {
-        Handler(Looper.getMainLooper()).post {
-            routesDataListAdapter.items = stateData.items
-            contentStateSwitcher.switchState(ContentState.CONTENT)
-        }
+        routesDataListAdapter.items = stateData.items
+        contentStateSwitcher.switchState(ContentState.CONTENT)
     }
+
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)

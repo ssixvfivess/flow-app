@@ -14,5 +14,5 @@ class GetTripDetailsResponseApi (
     val data: TripDetailsDataApi,
 
     @SerialName("paging")
-    val paging: PagingDataApi
+    val paging: PagingDataApi? = null
 )

@@ -22,7 +22,7 @@ data class TripDataApi(
     val route: List<PointDataApi>,
 
     @SerialName("transportType")
-    val transportType: String,
+    val transportType: List<String>,
 
     @SerialName("overtime")
     val overtime: Int,
@@ -31,5 +31,8 @@ data class TripDataApi(
     val arrivalDateTime: String,
 
     @SerialName("departureDateTime")
-    val departureDateTime: String
+    val departureDateTime: String,
+
+    @SerialName("routeTimes")
+    val routeTimes: List<Int>
 )

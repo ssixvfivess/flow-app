@@ -16,5 +16,8 @@ data class PointDataApi (
     val longitude: Float,
 
     @SerialName("stopTime")
-    val stopTime: Int
+    val stopTime: Int,
+
+    @SerialName("address")
+    val address: String
 )

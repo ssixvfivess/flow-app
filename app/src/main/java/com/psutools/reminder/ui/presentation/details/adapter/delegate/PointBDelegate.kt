@@ -10,7 +10,7 @@ import com.psutools.reminder.databinding.ItemWayBBinding
 import com.psutools.reminder.ui.presentation.details.adapter.delegate.PointBDelegate.ViewHolder
 
 
-class PointBDelegate() : BaseItemAdapterDelegate<PointB, ViewHolder>() {
+class PointBDelegate: BaseItemAdapterDelegate<PointB, ViewHolder>() {
     override fun isForViewType(item: BaseListItem): Boolean = item is PointB
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
@@ -29,7 +29,6 @@ class PointBDelegate() : BaseItemAdapterDelegate<PointB, ViewHolder>() {
     }
 
     class ViewHolder(
-        val viewBinding:
-        ItemWayBBinding
+        val viewBinding: ItemWayBBinding
     ) : RecyclerView.ViewHolder(viewBinding.root)
 }

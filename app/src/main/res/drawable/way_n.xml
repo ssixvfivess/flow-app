@@ -8,6 +8,6 @@
         android:radius="0dp" />
 
     <!-- Цвет фона -->
-    <solid android:color="@color/psu_yellow" />
+    <solid android:color="@color/white" />
 
 </shape>

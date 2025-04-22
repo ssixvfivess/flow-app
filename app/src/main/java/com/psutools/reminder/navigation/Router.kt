@@ -10,26 +10,13 @@ import javax.inject.Singleton
 
 
 interface Router {
-    fun createSampleDataDetailsIntent(context: Context, tripId: UUID): Intent
+    fun createDataDetailsIntent(context: Context, tripId: String): Intent
 }
 
 class RouterImpl @Inject constructor() : Router {
-    override fun createSampleDataDetailsIntent(context: Context, tripId: UUID): Intent {
+    override fun createDataDetailsIntent(context: Context, tripId: String): Intent {
         return DetailsActivity.createIntent(context).apply {
-            putExtra("TRIP_ID", tripId.toString())
+            putExtra("TRIP_ID", tripId)
         }
     }
 }
-
-
-//interface Router {
-//
-//    fun createSampleDataDetailsIntent(context: Context): Intent
-//}
-//
-//class RouterImpl @Inject constructor() : Router {
-//
-//    override fun createSampleDataDetailsIntent(context: Context): Intent {
-//        return SampleDataDetailsActivity.createIntent(context)
-//    }
-//}

@@ -49,6 +49,9 @@ abstract class DataModule {
                 .addConverterFactory(
                     Json {
                         ignoreUnknownKeys = true
+                        explicitNulls = false // Позволяет null-полям быть null
+                        coerceInputValues = true // Автоматически преобразует невалидные значения
+                        isLenient = true // Более мягкий парсинг
                     }.asConverterFactory("application/json".toMediaType())
                 )
                 .build()

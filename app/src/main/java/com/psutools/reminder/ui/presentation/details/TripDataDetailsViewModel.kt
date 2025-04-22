@@ -1,5 +1,6 @@
 package com.psutools.reminder.ui.presentation.details
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.psutools.reminder.base.arch.ScreenState
@@ -19,6 +20,7 @@ class TripDataDetailsViewModel @Inject constructor(
     private val getTripDetailsUseCase: GetTripDetailsUseCase,
     private val coroutineDispatchers: CoroutineDispatchers,
     private val tripDataDetailsUiMapper: TripDataDetailsUiMapper,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<ScreenState<TripDataDetailsState>> = MutableStateFlow(
@@ -30,9 +32,10 @@ class TripDataDetailsViewModel @Inject constructor(
         get() = _state.value is ScreenState.Content
 
     fun loadData() {
+        val userId = savedStateHandle.get<String>("tripId") ?: ""
         viewModelScope.tryLaunch(
             doOnLaunch = {
-                val data = getTripDetailsUseCase()
+                val data = getTripDetailsUseCase(userId)
                 val details = tripDataDetailsUiMapper.createListItem(data)
                 _state.value = ScreenState.Content(
                     TripDataDetailsState(details)

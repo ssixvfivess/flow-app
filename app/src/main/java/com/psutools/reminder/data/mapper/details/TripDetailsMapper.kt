@@ -22,10 +22,11 @@ class TripDetailsMapper @Inject constructor() {
             status = TripStatusData.fromValueStatus(apiModel.status),
             name = apiModel.name,
             route = mapPointListToDomain(apiModel.route),
-            transportType = TransportData.fromValueTransport(apiModel.transportType),
+            transportType = TransportData.fromValuesTransport(apiModel.transportType),
             overtime = apiModel.overtime,
             arrivalDateTime = DateTime.parse(apiModel.arrivalDateTime, pattern),
-            departureDateTime = DateTime.parse(apiModel.departureDateTime, pattern)
+            departureDateTime = DateTime.parse(apiModel.departureDateTime, pattern),
+            routeTimes = (apiModel.routeTimes)
         )
     }
 
@@ -34,7 +35,8 @@ class TripDetailsMapper @Inject constructor() {
             name = apiModel.name,
             latitude = apiModel.latitude,
             longitude = apiModel.longitude,
-            stopTime = apiModel.stopTime
+            stopTime = apiModel.stopTime,
+            address = apiModel.address
         )
     }
 

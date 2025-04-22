@@ -1,194 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_details_line_widget"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:foreground="?selectableItemBackground">
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="12dp"
+    android:backgroundTint="@color/psu_widget_gray"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_details_line_widget"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/psu_widget_gray"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:id="@+id/transportIconsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/point_b"
+        app:layout_constraintStart_toEndOf="@+id/line"
+        app:layout_constraintTop_toBottomOf="@+id/point_a_address">
 
-        <LinearLayout
-            android:id="@+id/transportIconsContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/point_b"
-            app:layout_constraintStart_toEndOf="@+id/line"
-            app:layout_constraintTop_toBottomOf="@+id/point_a_address">
-
-            <ImageView
-                android:id="@+id/walk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                app:srcCompat="@drawable/ic_walk" />
-
-            <ImageView
-                android:id="@+id/public_transport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                app:srcCompat="@drawable/ic_public_transport" />
-
-            <ImageView
-                android:id="@+id/car"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/ic_car" />
-
-            <ImageView
-                android:id="@+id/taxi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                app:srcCompat="@drawable/ic_taxi" />
-
-            <ImageView
-                android:id="@+id/bicycle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                app:srcCompat="@drawable/ic_bicycle" />
-
-            <ImageView
-                android:id="@+id/scooter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                app:srcCompat="@drawable/ic_scooter" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/time_of_route"
+        <ImageView
+            android:id="@+id/walk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="22dp"
-            android:fontFamily="@font/open_sans_medium"
-            android:text="40 мин"
-            android:textColor="@color/psu_details_heading_toolbar"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/point_b"
-            app:layout_constraintStart_toEndOf="@+id/transportIconsContainer"
-            app:layout_constraintTop_toBottomOf="@+id/point_a_address" />
-
-        <TextView
-            android:id="@+id/point_a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_semi_bold"
-            android:maxLines="1"
-            android:text="Дом"
-            android:textColor="@color/psu_details_heading_toolbar"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/line"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/point_a_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="1dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_medium"
-            android:maxLines="1"
-            android:text="ул. Мира, 45"
-            android:textColor="@color/psu_details_grey_text"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/line"
-            app:layout_constraintTop_toBottomOf="@+id/point_a" />
-
-        <TextView
-            android:id="@+id/point_b_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_medium"
-            android:maxLines="1"
-            android:text="ш. Космонавтов, 455, д. Большое Савино"
-            android:textColor="@color/psu_details_grey_text"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/line" />
-
-        <TextView
-            android:id="@+id/point_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="1dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_semi_bold"
-            android:maxLines="1"
-            android:text="Аэропорт Пермь, терминал А"
-            android:textColor="@color/psu_details_heading_toolbar"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/point_b_address"
-            app:layout_constraintStart_toEndOf="@+id/line" />
-
-        <TextView
-            android:id="@+id/time_for_point_a"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_medium"
-            android:maxLines="1"
-            android:text="13:00"
-            android:textColor="@color/psu_details_heading_toolbar"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/time_for_point_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/open_sans_medium"
-            android:maxLines="1"
-            android:text="13:40"
-            android:textColor="@color/psu_details_heading_toolbar"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:srcCompat="@drawable/ic_walk" />
 
         <ImageView
-            android:id="@+id/line"
+            android:id="@+id/public_transport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_rotes_line" />
+            android:layout_marginStart="7dp"
+            app:srcCompat="@drawable/ic_public_transport" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/ic_car" />
+
+        <ImageView
+            android:id="@+id/taxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            app:srcCompat="@drawable/ic_taxi" />
+
+        <ImageView
+            android:id="@+id/bicycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            app:srcCompat="@drawable/ic_bicycle" />
+
+        <ImageView
+            android:id="@+id/scooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            app:srcCompat="@drawable/ic_scooter" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_of_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"
+        android:fontFamily="@font/open_sans_medium"
+        android:text="40 мин"
+        android:textColor="@color/psu_details_heading_toolbar"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/point_b"
+        app:layout_constraintStart_toEndOf="@+id/transportIconsContainer"
+        app:layout_constraintTop_toBottomOf="@+id/point_a_address" />
+
+    <TextView
+        android:id="@+id/point_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_semi_bold"
+        android:maxLines="1"
+        android:text="Дом"
+        android:textColor="@color/psu_details_heading_toolbar"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/line"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/point_a_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_medium"
+        android:maxLines="1"
+        android:text="ул. Мира, 45"
+        android:textColor="@color/psu_details_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/line"
+        app:layout_constraintTop_toBottomOf="@+id/point_a" />
+
+    <TextView
+        android:id="@+id/point_b_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_medium"
+        android:maxLines="1"
+        android:text="ш. Космонавтов, 455, д. Большое Савино"
+        android:textColor="@color/psu_details_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/point_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="1dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_semi_bold"
+        android:maxLines="1"
+        android:text="Аэропорт Пермь, терминал А"
+        android:textColor="@color/psu_details_heading_toolbar"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/point_b_address"
+        app:layout_constraintStart_toEndOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/time_for_point_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_medium"
+        android:maxLines="1"
+        android:text="13:00"
+        android:textColor="@color/psu_details_heading_toolbar"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_for_point_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/open_sans_medium"
+        android:maxLines="1"
+        android:text="13:40"
+        android:textColor="@color/psu_details_heading_toolbar"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_rotes_line" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

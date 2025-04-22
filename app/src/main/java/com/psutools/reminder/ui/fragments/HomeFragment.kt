@@ -8,7 +8,6 @@ import com.psutools.reminder.app.navigation.Router
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentHomeBinding
-import com.psutools.reminder.domain.model.trip.TripData
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListState
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListViewModel
 import com.psutools.reminder.ui.presentation.list.adapter.TripDataListAdapter
@@ -57,14 +56,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun setupRecycler() {
         tripDataListAdapter = TripDataListAdapter(
-            onClickListener = onClickListener //->
+            onClickListener = onClickListener
         )
-
-// ->     Type mismatch.
-//        Required:
-//        (String) → Unit
-//        Found:
-//        (TripData) → Unit
 
         viewBinding.contentRecycler.layoutManager = LinearLayoutManager(requireContext())
 
@@ -85,17 +78,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun showContent(stateData: TripDataListState) {
-        Handler(Looper.getMainLooper()).post {
             tripDataListAdapter.items = stateData.items
             contentStateSwitcher.switchState(ContentState.CONTENT)
-        }
     }
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
-    private val onClickListener = { tripData: TripData ->
-        startActivity(router.createSampleDataDetailsIntent(requireContext(), tripData.id))
+    private val onClickListener = { tripId: String ->
+        startActivity(router.createDataDetailsIntent(requireContext(), tripId))
     }
 }

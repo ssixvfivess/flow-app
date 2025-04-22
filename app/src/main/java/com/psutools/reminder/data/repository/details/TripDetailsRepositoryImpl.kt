@@ -11,7 +11,8 @@ class TripDetailsRepositoryImpl @Inject constructor(
     private val service: TripDataService
 ) : TripDetailsRepository {
 
-    override suspend fun getTripData(): TripDetailsData {
-        return mapper.toDomain(service.getTrip().data)
+    override suspend fun getTripData(userId: String): TripDetailsData {
+        val test = service.getTrip(/*userId*/)
+        return mapper.toDomain(test.data)
     }
 }

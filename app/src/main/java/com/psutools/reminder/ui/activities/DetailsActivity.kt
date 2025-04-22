@@ -2,13 +2,11 @@ package com.psutools.reminder.ui.sample.details
 
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewbinding.ViewBinding
 import com.psutools.reminder.R
 import com.psutools.reminder.base.arch.BaseActivity
 import com.psutools.reminder.base.arch.ScreenState
@@ -17,7 +15,6 @@ import com.psutools.reminder.databinding.ActivityDetailsBinding
 import com.psutools.reminder.ui.presentation.details.TripDataDetailsState
 import com.psutools.reminder.ui.presentation.details.TripDataDetailsViewModel
 import com.psutools.reminder.ui.presentation.details.adapter.TripDataDetailsAdapter
-import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
@@ -38,7 +35,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 
-        setupToolbar()
+//        setupToolbar()
         setupRecycler()
         setupStateSwitcher(isFirstLaunch)
 
@@ -56,16 +53,16 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         }
     }
 
-    private fun setupToolbar() {
-        (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
-            toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
-                finish()
-            }
-        }
-    }
+//    private fun setupToolbar() {
+//        (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
+//            toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
+//                finish()
+//            }
+//        }
+//    }
 
     private fun setupRecycler() {
-        adapter = TripDataDetailsAdapter(onClickListener)
+        adapter = TripDataDetailsAdapter()
         viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
         viewBinding.recyclerView.adapter = adapter
     }
@@ -83,19 +80,18 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     }
 
     private fun showContent(stateData: TripDataDetailsState) {
-        Handler(Looper.getMainLooper()).post {
-            adapter.items = stateData.items
-            contentStateSwitcher.switchState(ContentState.CONTENT)
-        }
+        Log.d("DetailsActivity", "Items count: ${stateData.items.size}")
+        adapter.items = stateData.items
+        contentStateSwitcher.switchState(ContentState.CONTENT)
     }
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
-    private val onClickListener = { text: String ->
-        SnackbarManager.createSnackbar(viewBinding.root, text)
-    }
+//    private val onClickListener = { text: String ->
+//        SnackbarManager.createSnackbar(viewBinding.root, text)
+//    }
 
     companion object {
         fun createIntent(context: Context): Intent {

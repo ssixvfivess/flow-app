@@ -4,5 +4,5 @@ import com.psutools.reminder.domain.model.details.TripDetailsData
 
 interface TripDetailsRepository {
 
-    suspend fun getTripData(): TripDetailsData
+    suspend fun getTripData(userId: String): TripDetailsData
 }

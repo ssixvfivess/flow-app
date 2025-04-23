@@ -20,6 +20,6 @@ class TripDataDetailsUiMapper @Inject constructor() {
                 else -> null
             }
         }
-        return /*listOf(TripToolbarNameRoute(routeName = data.name)) + */points
+        return points
     }
 }

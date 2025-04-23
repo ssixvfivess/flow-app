@@ -38,7 +38,9 @@ class TripDataDetailsViewModel @Inject constructor(
                 val data = getTripDetailsUseCase(tripId)
                 val details = tripDataDetailsUiMapper.createListItem(data)
                 _state.value = ScreenState.Content(
-                    TripDataDetailsState(details)
+                    TripDataDetailsState(
+                        items = details,
+                        routeName = data.name)
                 )
             },
             doOnError = { error ->

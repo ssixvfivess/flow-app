@@ -5,6 +5,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.R
@@ -47,7 +48,10 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     override fun observeData() {
         viewModel.state.collectWithLifecycle(this) { state ->
             when (state) {
-                is ScreenState.Content -> showContent(state.data)
+                is ScreenState.Content -> {
+                    updateToolbarTitle(state.data.routeName)
+                    showContent(state.data)
+                }
                 ScreenState.Loading -> showLoading()
             }
         }
@@ -56,10 +60,15 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     private fun setupToolbar() {
         (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
             toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
-                finish()
+                onBackPressedDispatcher.onBackPressed()
             }
         }
     }
+
+    private fun updateToolbarTitle(title: String) {
+        (viewBinding.toolbar as? ViewGroup)?.findViewById<TextView>(R.id.title_text)?.text = title
+    }
+
 
     private fun setupRecycler() {
         adapter = TripDataDetailsAdapter()

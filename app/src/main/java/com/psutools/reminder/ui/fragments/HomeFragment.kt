@@ -1,7 +1,5 @@
 package com.psutools.reminder.ui.fragments
 
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.app.navigation.Router
@@ -11,7 +9,6 @@ import com.psutools.reminder.databinding.FragmentHomeBinding
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListState
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListViewModel
 import com.psutools.reminder.ui.presentation.list.adapter.TripDataListAdapter
-import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
@@ -87,6 +84,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private val onClickListener = { tripId: String ->
-        startActivity(router.createDataDetailsIntent(requireContext(), tripId))
+        startActivity(router.createRouteDetailsIntent(requireContext(), tripId))
     }
 }

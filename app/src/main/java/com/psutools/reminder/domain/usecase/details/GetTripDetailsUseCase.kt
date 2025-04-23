@@ -7,14 +7,14 @@ import javax.inject.Inject
 
 interface GetTripDetailsUseCase {
 
-    suspend operator fun invoke(userId: String): TripDetailsData
+    suspend operator fun invoke(tripId: String): TripDetailsData
 }
 
 class GetTripDetailsUseCaseImpl @Inject constructor(
     private val repository: TripDetailsRepository,
 ) : GetTripDetailsUseCase {
 
-    override suspend fun invoke(userId: String): TripDetailsData {
-        return repository.getTripData(userId)
+    override suspend fun invoke(tripId: String): TripDetailsData {
+        return repository.getTripData(tripId)
     }
 }

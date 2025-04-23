@@ -35,7 +35,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 
-//        setupToolbar()
+        setupToolbar()
         setupRecycler()
         setupStateSwitcher(isFirstLaunch)
 
@@ -53,13 +53,13 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         }
     }
 
-//    private fun setupToolbar() {
-//        (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
-//            toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
-//                finish()
-//            }
-//        }
-//    }
+    private fun setupToolbar() {
+        (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
+            toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
+                finish()
+            }
+        }
+    }
 
     private fun setupRecycler() {
         adapter = TripDataDetailsAdapter()
@@ -80,7 +80,6 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     }
 
     private fun showContent(stateData: TripDataDetailsState) {
-        Log.d("DetailsActivity", "Items count: ${stateData.items.size}")
         adapter.items = stateData.items
         contentStateSwitcher.switchState(ContentState.CONTENT)
     }

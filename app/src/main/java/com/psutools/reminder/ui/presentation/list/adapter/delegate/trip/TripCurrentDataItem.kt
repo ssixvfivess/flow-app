@@ -2,7 +2,7 @@ package com.psutools.reminder.ui.presentation.list.adapter.delegate.trip
 
 import com.psutools.reminder.base.delegates.BaseListItem
 
-class TripCurrentDataItem (
+data class TripCurrentDataItem (
     val name: String,
     val route: String,
     val arrivalDateTime: String

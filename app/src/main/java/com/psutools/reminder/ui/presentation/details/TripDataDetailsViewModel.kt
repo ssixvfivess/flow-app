@@ -32,10 +32,10 @@ class TripDataDetailsViewModel @Inject constructor(
         get() = _state.value is ScreenState.Content
 
     fun loadData() {
-        val userId = savedStateHandle.get<String>("tripId") ?: ""
+        val tripId = savedStateHandle.get<String>("tripId") ?: ""
         viewModelScope.tryLaunch(
             doOnLaunch = {
-                val data = getTripDetailsUseCase(userId)
+                val data = getTripDetailsUseCase(tripId)
                 val details = tripDataDetailsUiMapper.createListItem(data)
                 _state.value = ScreenState.Content(
                     TripDataDetailsState(details)

@@ -12,10 +12,10 @@ class TripDataDetailsUiMapper @Inject constructor() {
     fun createListItem(data: TripDetailsData): List<BaseListItem> {
 
         val points = data.route.mapIndexedNotNull { index, route ->
-            val lastIndex = data.route.size-1
-            when(index) {
+            val lastIndex = data.route.size - 1
+            when (index) {
                 0 -> PointA(point = route.name)
-                in 1 ..< lastIndex -> PointN(point = route.name)
+                in 1..<lastIndex -> PointN(point = route.name)
                 lastIndex -> PointB(point = route.name)
                 else -> null
             }

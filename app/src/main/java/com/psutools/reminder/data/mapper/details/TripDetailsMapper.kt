@@ -26,7 +26,7 @@ class TripDetailsMapper @Inject constructor() {
             overtime = apiModel.overtime,
             arrivalDateTime = DateTime.parse(apiModel.arrivalDateTime, pattern),
             departureDateTime = DateTime.parse(apiModel.departureDateTime, pattern),
-            routeTimes = (apiModel.routeTimes)
+            routeTimes = apiModel.routeTimes
         )
     }
 

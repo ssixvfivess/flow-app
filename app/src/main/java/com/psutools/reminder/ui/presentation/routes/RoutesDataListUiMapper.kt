@@ -27,6 +27,7 @@ class RoutesDataListUiMapper @Inject constructor(
             for (trip in dataList) {
                 items.add(
                     TripDataListItem(
+                        tripId = trip.id.toString(),
                         name = trip.name,
                         route = getFullRouteAsString(trip.route),
                         arrivalDateTime = getRouteDate(trip),

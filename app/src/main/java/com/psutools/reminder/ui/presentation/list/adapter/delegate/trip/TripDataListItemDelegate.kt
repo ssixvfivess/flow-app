@@ -34,7 +34,7 @@ class TripDataListItemDelegate(
 
 
             contentRoute.setOnClickListener {
-                onClickListener(item.route) //TODO check me
+                onClickListener(item.tripId)
             }
         }
     }

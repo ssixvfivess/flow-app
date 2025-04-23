@@ -78,9 +78,6 @@ dependencies {
     // UI
     implementation(libs.adapterDelegates)
 
-    //GSON
-    implementation(libs.gson)
-
     // MEDIA
     implementation(libs.glide)
     ksp(libs.glideCompiler)

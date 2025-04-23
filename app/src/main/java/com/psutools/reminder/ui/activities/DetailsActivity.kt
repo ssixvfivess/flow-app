@@ -2,11 +2,14 @@ package com.psutools.reminder.ui.sample.details
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.psutools.reminder.R
 import com.psutools.reminder.base.arch.BaseActivity
@@ -17,6 +20,7 @@ import com.psutools.reminder.ui.presentation.details.TripDataDetailsState
 import com.psutools.reminder.ui.presentation.details.TripDataDetailsViewModel
 import com.psutools.reminder.ui.presentation.details.adapter.TripDataDetailsAdapter
 import com.psutools.reminder.utils.ui.collectWithLifecycle
+import com.psutools.reminder.utils.ui.isDarkMode
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
 import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
@@ -33,6 +37,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
     private lateinit var adapter: TripDataDetailsAdapter
 
+
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 
@@ -42,6 +47,16 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
 
         if (!isFirstLaunch) {
             viewModel.loadData()
+        }
+
+        window?.statusBarColor = ContextCompat.getColor(this, R.color.psu_widget_gray)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val decorView = window.decorView
+            if (!isDarkMode(this)) {
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            } else {
+                decorView.setSystemUiVisibility(0);
+            }
         }
     }
 
@@ -58,15 +73,13 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     }
 
     private fun setupToolbar() {
-        (viewBinding.toolbar as? ViewGroup)?.let { toolbar ->
-            toolbar.findViewById<View>(R.id.back_button)?.setOnClickListener {
-                onBackPressedDispatcher.onBackPressed()
-            }
+        viewBinding.toolbar.backButton.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
     private fun updateToolbarTitle(title: String) {
-        (viewBinding.toolbar as? ViewGroup)?.findViewById<TextView>(R.id.title_text)?.text = title
+        viewBinding.toolbar.titleText.text = title
     }
 
 

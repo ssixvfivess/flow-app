@@ -13,7 +13,11 @@ interface Router {
 class RouterImpl @Inject constructor() : Router {
     override fun createRouteDetailsIntent(context: Context, tripId: String): Intent {
         return DetailsActivity.createIntent(context).apply {
-            putExtra("tripId", tripId)
+            putExtra(TRIP_ID, tripId)
         }
+    }
+
+    private companion object {
+        const val TRIP_ID = "tripId"
     }
 }

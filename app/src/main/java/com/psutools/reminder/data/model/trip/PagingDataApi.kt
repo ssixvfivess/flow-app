@@ -12,11 +12,11 @@ data class PagingDataApi(
     @SerialName("pageNumber")
     val pageNumber: Int,
 
-    @SerialName("numberOfElements")
-    val numberOfElements: Int,
+    @SerialName("pageSize")
+    val pageSize: Int,
 
-    @SerialName("totalElement")
-    val totalElement: Int,
+    @SerialName("totalElements")
+    val totalElements: Int,
 
     @SerialName("last")
     val last: Boolean

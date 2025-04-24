@@ -62,6 +62,7 @@ class TripDataListUiMapper @Inject constructor(
             for (upcomingTrip in upcomingTrips) {
                 items.add(
                     TripDataListItem(
+                        tripId = upcomingTrip.id.toString(),
                         name = upcomingTrip.name,
                         route = getFullRouteAsString(upcomingTrip.route),
                         arrivalDateTime = getRouteDate(upcomingTrip),

@@ -1,24 +1,26 @@
 package com.psutools.reminder.ui.fragments
 
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.psutools.reminder.app.navigation.Router
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentHomeBinding
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListState
 import com.psutools.reminder.ui.presentation.list.trip.TripDataListViewModel
 import com.psutools.reminder.ui.presentation.list.adapter.TripDataListAdapter
-import com.psutools.reminder.utils.ui.SnackbarManager
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
 import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+
+    @Inject
+    lateinit var router: Router
 
     override fun createViewBinding(): FragmentHomeBinding {
         return FragmentHomeBinding.inflate(layoutInflater)
@@ -73,17 +75,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun showContent(stateData: TripDataListState) {
-        Handler(Looper.getMainLooper()).post {
             tripDataListAdapter.items = stateData.items
             contentStateSwitcher.switchState(ContentState.CONTENT)
-        }
     }
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
-    private val onClickListener = { text: String ->
-        SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
+    private val onClickListener = { tripId: String ->
+        startActivity(router.createRouteDetailsIntent(requireContext(), tripId))
     }
 }

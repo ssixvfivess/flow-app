@@ -34,10 +34,11 @@ class TripDataListItemDelegate(
 
 
             contentRoute.setOnClickListener {
-                onClickListener(item.route)
+                onClickListener(item.tripId)
             }
         }
     }
 
-    class ViewHolder(val viewBinding: ItemTripDataListBinding) : RecyclerView.ViewHolder(viewBinding.root)
+    class ViewHolder(val viewBinding: ItemTripDataListBinding) :
+        RecyclerView.ViewHolder(viewBinding.root)
 }

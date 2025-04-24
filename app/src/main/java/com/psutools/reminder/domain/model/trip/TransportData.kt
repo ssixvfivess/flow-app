@@ -10,7 +10,16 @@ enum class TransportData {
     UNKNOWN;
 
     companion object {
-        fun fromValueTransport(value: String) : TransportData =
-            TransportData.entries.find { it.name == value } ?: UNKNOWN
+        fun fromValueTransport(value: String): TransportData {
+            return try {
+                valueOf(value.uppercase())
+            } catch (e: IllegalArgumentException) {
+                UNKNOWN
+            }
+        }
+
+        fun fromValuesTransport(values: List<String>): List<TransportData> {
+            return values.map { fromValueTransport(it) }
+        }
     }
 }

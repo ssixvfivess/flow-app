@@ -30,7 +30,7 @@ class TripCurrentDataItemDelegate(
                 contentRoute.text = item.route
 
                 contentRoute.setOnClickListener {
-                    onClickListener(item.route)
+                    onClickListener(item.id)
                 }
             }
         }

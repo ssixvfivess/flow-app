@@ -1,5 +1,7 @@
 package com.psutools.reminder.di
 
+import com.psutools.reminder.domain.usecase.details.GetTripDetailsUseCase
+import com.psutools.reminder.domain.usecase.details.GetTripDetailsUseCaseImpl
 import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCase
 import com.psutools.reminder.domain.usecase.trip.GetTripDataListUseCaseImpl
 import dagger.Binds
@@ -15,4 +17,8 @@ interface DomainModule {
     @Binds
     @Reusable
     fun bindGetTripDataListUseCase(impl: GetTripDataListUseCaseImpl): GetTripDataListUseCase
+
+    @Binds
+    @Reusable
+    fun bindGetTripDetailsUseCase(impl: GetTripDetailsUseCaseImpl): GetTripDetailsUseCase
 }

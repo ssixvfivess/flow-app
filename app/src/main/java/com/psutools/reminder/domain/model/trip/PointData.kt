@@ -7,5 +7,6 @@ data class PointData (
     val name: String,
     val latitude: Float,
     val longitude: Float,
-    val stopTime: Int
+    val stopTime: Int,
+    val address: String
 )

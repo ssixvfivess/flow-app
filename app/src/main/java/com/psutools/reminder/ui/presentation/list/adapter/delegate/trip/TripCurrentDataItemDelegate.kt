@@ -29,8 +29,8 @@ class TripCurrentDataItemDelegate(
                 contentName.text = item.name
                 contentRoute.text = item.route
 
-                contentRoute.setOnClickListener {
-                    onClickListener(item.id)
+                root.setOnClickListener {
+                    onClickListener(item.tripId)
                 }
             }
         }

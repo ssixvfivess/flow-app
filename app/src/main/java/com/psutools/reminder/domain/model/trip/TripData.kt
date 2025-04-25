@@ -3,7 +3,6 @@ package com.psutools.reminder.domain.model.trip
 import org.joda.time.DateTime
 import java.util.UUID
 
-
 data class TripData(
     val id: UUID,
     val userId: UUID,

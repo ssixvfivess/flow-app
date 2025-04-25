@@ -32,6 +32,7 @@
             android:clipToPadding="false"
             android:paddingBottom="16dp"
             tools:itemCount="8"
+
             tools:listitem="@layout/item_details_route_line" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

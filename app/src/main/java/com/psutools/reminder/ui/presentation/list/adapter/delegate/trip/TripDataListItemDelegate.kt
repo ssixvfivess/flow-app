@@ -33,7 +33,7 @@ class TripDataListItemDelegate(
 
 
 
-            contentRoute.setOnClickListener {
+            root.setOnClickListener {
                 onClickListener(item.tripId)
             }
         }

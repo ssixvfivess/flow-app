@@ -77,6 +77,10 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         viewBinding.toolbar.backButton.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()
         }
+
+        viewBinding.toolbar.deleteButton.setOnClickListener{
+
+        }
     }
 
     private fun updateToolbarTitle(title: String) {

@@ -14,7 +14,8 @@ data class TripDetailsData(
     val route: List<PointData>,
     val transportType: List<TransportData>,
     val overtime: Int,
-    val arrivalDateTime: DateTime,
     val departureDateTime: DateTime,
-    val routeTimes: List<Int>
+    val arrivalDateTime: DateTime,
+    val routeTimes: List<Int>,
+    val displayRouteTimes: List<String>
 )

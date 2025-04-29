@@ -13,5 +13,6 @@ data class TripData(
     val overtime: Int,
     val arrivalDateTime: DateTime,
     val departureDateTime: DateTime,
-    val routeTimes: List<Int>
+    val routeTimes: List<Int>,
+    val displayRouteTimes: List<String>
 )

@@ -24,6 +24,7 @@ class TripDataMapper @Inject constructor() {
             route = mapPointListToDomain(apiModel.route),
             transportType = TransportData.fromValuesTransport(apiModel.transportType),
             overtime = apiModel.overtime,
+            displayRouteTimes = apiModel.displayRouteTimes,
             arrivalDateTime = DateTime.parse(apiModel.arrivalDateTime, pattern),
             departureDateTime = DateTime.parse(apiModel.departureDateTime, pattern),
             routeTimes = (apiModel.routeTimes)

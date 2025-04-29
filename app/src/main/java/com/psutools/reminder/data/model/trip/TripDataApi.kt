@@ -34,5 +34,8 @@ data class TripDataApi(
     val departureDateTime: String,
 
     @SerialName("routeTimes")
-    val routeTimes: List<Int>
+    val routeTimes: List<Int>,
+
+    @SerialName("displayRouteTimes")
+    val displayRouteTimes: List<String>
 )

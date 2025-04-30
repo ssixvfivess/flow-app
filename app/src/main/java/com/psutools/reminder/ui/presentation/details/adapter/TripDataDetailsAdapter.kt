@@ -19,7 +19,11 @@ class TripDataDetailsAdapter : ListDelegationAdapter<List<BaseListItem>>() {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun setItems(items: List<BaseListItem>?) {
-        this.items = items
+        this.items = items ?: emptyList()
         notifyDataSetChanged()
+    }
+
+    fun clear() {
+        setItems(emptyList())
     }
 }

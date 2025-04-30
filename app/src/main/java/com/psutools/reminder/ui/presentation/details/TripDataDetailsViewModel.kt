@@ -55,7 +55,6 @@ class TripDataDetailsViewModel @Inject constructor(
     }
 
     private val _deleteState = MutableStateFlow<DeleteTripState>(DeleteTripState.Idle)
-    val deleteState: StateFlow<DeleteTripState> = _deleteState.asStateFlow()
 
     fun deleteTrip(tripId: String) {
         viewModelScope.tryLaunch(
@@ -64,8 +63,13 @@ class TripDataDetailsViewModel @Inject constructor(
 
                 deleteTripUseCase(tripId)
                     .onSuccess {
+                        _state.value = ScreenState.Content(
+                            TripDataDetailsState(
+                                items = emptyList(),
+                                routeName = ""
+                            )
+                        )
                         _deleteState.value = DeleteTripState.Success
-                        _state.value = ScreenState.Loading
                     }
                     .onFailure { exception ->
                         _deleteState.value = DeleteTripState.Error(exception.message)

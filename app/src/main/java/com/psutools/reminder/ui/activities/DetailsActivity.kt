@@ -1,5 +1,6 @@
 package com.psutools.reminder.ui.sample.details
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -126,7 +127,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        val tripId = intent.getStringExtra("TRIP_ID") ?: ""
+        val tripId = intent.getStringExtra("tripId") ?: ""
 
         with(dialogViewBinding) {
             textForWindow1.setText(R.string.text1_delete_window)
@@ -138,6 +139,11 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
 
             buttonDelete.setOnClickListener {
                 viewModel.deleteTrip(tripId)
+                setResult(
+                    Activity.RESULT_OK,
+                    Intent().putExtra("DELETED_TRIP_ID", tripId)
+                )
+                finish()
                 dialog.dismiss()
             }
         }

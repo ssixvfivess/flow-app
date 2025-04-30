@@ -40,6 +40,7 @@ class TripDataListUiMapper @Inject constructor(
             for (activeTrip in activeTrips) {
                 items.add(
                     TripCurrentDataItem(
+                        tripId = activeTrip.id.toString(),
                         name = activeTrip.name,
                         route = getFullRouteAsString(activeTrip.route),
                         arrivalDateTime = resourceProvider.getString(R.string.now_text_widget)

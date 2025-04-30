@@ -1,12 +1,15 @@
 package com.psutools.reminder.ui.sample.details
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -16,6 +19,7 @@ import com.psutools.reminder.base.arch.BaseActivity
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.base.lazyUnsafe
 import com.psutools.reminder.databinding.ActivityDetailsBinding
+import com.psutools.reminder.databinding.DeleteWindowBinding
 import com.psutools.reminder.ui.presentation.details.TripDataDetailsState
 import com.psutools.reminder.ui.presentation.details.TripDataDetailsViewModel
 import com.psutools.reminder.ui.presentation.details.adapter.TripDataDetailsAdapter
@@ -76,6 +80,10 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         viewBinding.toolbar.backButton.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()
         }
+
+        viewBinding.toolbar.deleteButton.setOnClickListener {
+            showDeleteDialog()
+        }
     }
 
     private fun updateToolbarTitle(title: String) {
@@ -110,9 +118,38 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
-//    private val onClickListener = { text: String ->
-//        SnackbarManager.createSnackbar(viewBinding.root, text)
-//    }
+
+    private fun showDeleteDialog() {
+        val dialogViewBinding = DeleteWindowBinding.inflate(LayoutInflater.from(this), null, false)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogViewBinding.root)
+            .create()
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val tripId = intent.getStringExtra("tripId") ?: ""
+
+        with(dialogViewBinding) {
+            textForWindow1.setText(R.string.text1_delete_window)
+            textForWindow2.setText(R.string.text2_delete_window)
+
+            buttonCancel.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            buttonDelete.setOnClickListener {
+                viewModel.deleteTrip(tripId)
+                setResult(
+                    Activity.RESULT_OK,
+                    Intent().putExtra("DELETED_TRIP_ID", tripId)
+                )
+                finish()
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+    }
 
     companion object {
         fun createIntent(context: Context): Intent {

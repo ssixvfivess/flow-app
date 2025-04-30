@@ -6,6 +6,7 @@ import android.os.Looper
 import android.widget.CalendarView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.psutools.reminder.app.navigation.Router
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentRoutesBinding
@@ -19,18 +20,19 @@ import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
 import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
 import org.joda.time.DateTime
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
+
+    @Inject
+    lateinit var router: Router
 
     override fun createViewBinding(): FragmentRoutesBinding {
         return FragmentRoutesBinding.inflate(layoutInflater)
     }
 
     private val viewModel: RoutesViewModel by viewModels<RoutesViewModel>()
-    private val onClickListener = { text: String ->
-        SnackbarManager.createSnackbar(viewBinding.root, "Item: $text")
-    }
     private lateinit var routesDataListAdapter: RoutesDataListAdapter
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
 
@@ -108,5 +110,9 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
 
     private fun showLoading() {
         contentStateSwitcher.switchState(ContentState.LOADING)
+    }
+
+    private val onClickListener = { tripId: String ->
+        startActivity(router.createRouteDetailsIntent(requireContext(), tripId))
     }
 }

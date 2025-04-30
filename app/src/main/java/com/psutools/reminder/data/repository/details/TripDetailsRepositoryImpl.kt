@@ -15,4 +15,17 @@ class TripDetailsRepositoryImpl @Inject constructor(
         val test = service.getTrip(tripId)
         return mapper.toDomain(test.data)
     }
+
+    override suspend fun deleteTrip(tripId: String): Result<Unit> {
+        return try {
+            val response = service.deleteTrip(tripId)
+            if (response.isSuccessful) {
+                Result.success(Unit)
+            } else {
+                Result.failure(Exception("Server error: ${response.code()}"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

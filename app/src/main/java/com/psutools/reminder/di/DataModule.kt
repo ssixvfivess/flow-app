@@ -1,4 +1,5 @@
 package com.psutools.reminder.di
+
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.psutools.reminder.BuildConfig
 import com.psutools.reminder.data.repository.details.TripDetailsRepositoryImpl
@@ -6,6 +7,8 @@ import com.psutools.reminder.data.repository.trip.TripDataRepositoryImpl
 import com.psutools.reminder.data.service.trip.TripDataService
 import com.psutools.reminder.domain.repository.details.TripDetailsRepository
 import com.psutools.reminder.domain.repository.trip.TripDataRepository
+import com.psutools.reminder.domain.usecase.details.DeleteTripUseCase
+import com.psutools.reminder.domain.usecase.details.DeleteTripUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

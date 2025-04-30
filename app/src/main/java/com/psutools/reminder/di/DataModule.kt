@@ -35,16 +35,6 @@ abstract class DataModule {
 
     @Module
     @InstallIn(SingletonComponent::class)
-    abstract class UseCaseModule {
-
-        @Binds
-        abstract fun bindDeleteTripUseCase(
-            impl: DeleteTripUseCaseImpl
-        ): DeleteTripUseCase
-    }
-
-    @Module
-    @InstallIn(SingletonComponent::class)
     class Providers {
 
         @Provides

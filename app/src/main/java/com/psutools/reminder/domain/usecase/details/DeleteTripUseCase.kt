@@ -16,21 +16,6 @@ class DeleteTripUseCaseImpl @Inject constructor(
 ) : DeleteTripUseCase {
 
     override suspend operator fun invoke(tripId: String): Result<Unit> = withContext(Dispatchers.IO) {
-        try {
-            repository.deleteTrip(tripId)
-            Result.success(Unit)
-
-        } catch (e: IOException) {
-            //Сетевые ошибки
-            Result.failure(IOException("Network error: ${e.message}"))
-
-        } catch (e: HttpException) {
-            //HTTP ошибки
-            Result.failure(IOException("Server error: ${e.code()} ${e.message}"))
-
-        } catch (e: Exception) {
-            //Другие ошибки
-            Result.failure(IllegalStateException("Unexpected error: ${e.message}"))
-        }
+        repository.deleteTrip(tripId)
     }
 }

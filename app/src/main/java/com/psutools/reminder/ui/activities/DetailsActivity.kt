@@ -1,17 +1,21 @@
 package com.psutools.reminder.ui.sample.details
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.psutools.reminder.R
 import com.psutools.reminder.base.arch.BaseActivity
 import com.psutools.reminder.base.arch.ScreenState
@@ -26,6 +30,8 @@ import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
 import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
@@ -78,8 +84,8 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        viewBinding.toolbar.deleteButton.setOnClickListener{
-
+        viewBinding.toolbar.deleteButton.setOnClickListener {
+            showDeleteDialog()
         }
     }
 
@@ -115,13 +121,98 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
-//    private val onClickListener = { text: String ->
-//        SnackbarManager.createSnackbar(viewBinding.root, text)
-//    }
 
+    private fun showDeleteDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.delete_window, null)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val tripId = intent.getStringExtra("TRIP_ID") ?: ""
+
+        with(dialogView) {
+            findViewById<TextView>(R.id.text_for_window1).setText(R.string.text1_delete_window)
+            findViewById<TextView>(R.id.text_for_window2).setText(R.string.text2_delete_window)
+
+            findViewById<Button>(R.id.button_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
+
+            findViewById<Button>(R.id.button_delete).setOnClickListener {
+                viewModel.deleteTrip(tripId)
+                dialog.dismiss()
+            }
+        }
+
+        // Наблюдаем за состоянием удаления
+        viewModel.deleteState.onEach { state ->
+            when (state) {
+                is TripDataDetailsViewModel.DeleteTripState.Success -> {
+                    // Показываем сообщение об успехе и закрываем активити
+                    Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "Поездка успешно удалена",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+
+                    setResult(Activity.RESULT_OK)
+                    finish()
+                }
+                is TripDataDetailsViewModel.DeleteTripState.Error -> {
+                    // Показываем ошибку
+                    state.message?.let { error ->
+                        Snackbar.make(
+                            findViewById(android.R.id.content),
+                            error,
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                }
+                TripDataDetailsViewModel.DeleteTripState.Loading -> {
+                    // Можно показать индикатор загрузки
+                }
+                else -> {}
+            }
+        }.launchIn(lifecycleScope) // Запускаем в lifecycleScope
+
+        dialog.show()
+    }
     companion object {
         fun createIntent(context: Context): Intent {
             return Intent(context, DetailsActivity::class.java)
         }
     }
 }
+
+
+
+//private fun showDeleteDialog() {
+//    val dialogView = LayoutInflater.from(this).inflate(R.layout.delete_window, null)
+//
+//    val dialog = AlertDialog.Builder(this)
+//        .setView(dialogView)
+//        .create()
+//
+//    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//
+//    val textForWindow1 = dialogView.findViewById<TextView>(R.id.text_for_window1)
+//    val textForWindow2 = dialogView.findViewById<TextView>(R.id.text_for_window2)
+//    val cancelButton = dialogView.findViewById<Button>(R.id.button_cancel)
+//    val deleteButton = dialogView.findViewById<Button>(R.id.button_delete)
+//
+//    textForWindow1.setText(R.string.text1_delete_window)
+//    textForWindow2.setText(R.string.text2_delete_window)
+//
+//    cancelButton.setOnClickListener {
+//        dialog.dismiss()
+//    }
+//
+//    deleteButton.setOnClickListener {
+//        viewModel.deleteTrip(tripId = "")
+//        dialog.dismiss()
+//    }
+//
+//    dialog.show()
+//}

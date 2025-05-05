@@ -17,5 +17,6 @@
     <string name="from_point">Откуда едем?</string>
     <string name="to_point">Куда поедем?</string>
     <string name="add_new_point">Добавить точку</string>
+    <string name="where_are_we_going">Куда поедем?</string>
 
 </resources>

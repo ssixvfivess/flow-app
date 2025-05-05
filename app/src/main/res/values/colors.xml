@@ -53,5 +53,6 @@
     <color name="psu_create_name">#D9D9D9</color>
     <color name="psu_gray_for_create">#F5F7F9</color>
     <color name="psu_not_active">#FBD794</color>
+    <color name="psu_gray_maps_ic">#4D4D4D</color>
 
 </resources>

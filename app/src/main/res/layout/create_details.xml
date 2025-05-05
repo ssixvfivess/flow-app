@@ -67,7 +67,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Дата" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,6 +76,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
+                android:inputType="date"
                 android:text="6 апр. 2025 г."
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
@@ -123,7 +124,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Время прибытия" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,6 +133,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
+                android:inputType="time"
                 android:text="08:00"
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
@@ -177,7 +179,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Напоминание" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,6 +188,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
+                android:inputType="text"
                 android:text="за 10 минут"
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"

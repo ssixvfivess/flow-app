@@ -6,7 +6,4 @@
     <!-- Скругление углов (в dp) -->
     <corners android:radius="20dp" />
 
-    <!-- Цвет фона -->
-    <solid android:color="@color/psu_yellow" />
-
 </shape>

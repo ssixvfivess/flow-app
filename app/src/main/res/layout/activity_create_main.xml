@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/custom_details_toolbar"
+        layout="@layout/toolbar_for_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +30,12 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingBottom="16dp"
-            tools:itemCount="8"
-
-            tools:listitem="@layout/item_details_route_line" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="1"
+            tools:listitem="@layout/create_details" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -43,17 +46,17 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="44dp"
         android:background="@drawable/details_botton"
-        android:backgroundTint="@color/psu_yellow"
         android:elevation="0dp"
         android:fontFamily="@font/open_sans_bold"
         android:letterSpacing="0.05"
         android:stateListAnimator="@null"
-        android:text="Редактировать поездку"
+        android:text="Продолжить"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/psu_not_active" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

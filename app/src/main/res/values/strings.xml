@@ -13,5 +13,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text1_delete_window">Вы уверены,</string>
     <string name="text2_delete_window">что хотите удалить поездку?</string>
+    <string name="name_of_route">Название поездки</string>
+    <string name="from_point">Откуда едем?</string>
+    <string name="to_point">Куда поедем?</string>
+    <string name="add_new_point">Добавить точку</string>
+    <string name="where_are_we_going">Куда поедем?</string>
 
 </resources>

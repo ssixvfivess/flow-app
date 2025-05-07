@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/psu_not_active" android:state_enabled="false" /> <!-- Неактивная -->
+    <item android:color="@color/psu_yellow" android:state_enabled="true" />  <!-- Активная -->
+</selector>

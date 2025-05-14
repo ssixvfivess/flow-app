@@ -4,12 +4,15 @@ import com.psutools.reminder.data.model.trip.PointDataApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+
+//📌Дата-модели, сожержащие сырые данные данные из внешних источников (api/db)
 @Serializable
 data class TripDetailsDataApi(
 
     @SerialName("id")
     val id: String,
 
+    //📌например тут id - строка, но по факту в domain уже будет uuid
     @SerialName("userId")
     val userId: String,
 

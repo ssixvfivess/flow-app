@@ -9,6 +9,7 @@ import retrofit2.http.Path
 
 interface TripDataService {
 
+    //📌RETROFIT Интерфейс для похода в сеть. Выдает api-модельки
     @GET("/v1/routes-service/trips?userId=4cef84ba-a98a-4089-b6d8-bf0416ad2208")
     suspend fun getTripsList(): GetTripsListResponseApi
 

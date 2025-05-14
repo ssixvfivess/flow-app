@@ -6,14 +6,15 @@ import com.psutools.reminder.domain.model.details.TripDetailsData
 import com.psutools.reminder.domain.repository.details.TripDetailsRepository
 import javax.inject.Inject
 
+//📌Управляет данными из внешних источников. Решает, откуда взять данные и куда отправить/сохранить. Дергает сервисы (api) и ДАО(bd) Выдает доменные модели.
 class TripDetailsRepositoryImpl @Inject constructor(
     private val mapper: TripDetailsMapper,
     private val service: TripDataService
 ) : TripDetailsRepository {
 
     override suspend fun getTripData(tripId: String): TripDetailsData {
-        val test = service.getTrip(tripId)
-        return mapper.toDomain(test.data)
+        val apiTrip = service.getTrip(tripId) //📌Запрос к API. обращается к сетевому сервису (Retrofit)
+        return mapper.toDomain(apiTrip.data) //📌Конвертация в доменную модель. преобразует DTO (Data Transfer Object) в доменную модель
     }
 
     override suspend fun deleteTrip(tripId: String): Result<Unit> {

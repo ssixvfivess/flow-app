@@ -4,7 +4,8 @@ import android.text.Editable
 import com.psutools.reminder.base.delegates.BaseListItem
 
 data class CreatePointB (
-    val point: Editable
+    val hint: String,
+    val point: String
 ): BaseListItem {
     override val id: String = "CreatePointB-$point"
 }

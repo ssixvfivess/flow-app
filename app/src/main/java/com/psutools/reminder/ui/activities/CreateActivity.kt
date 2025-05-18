@@ -1,6 +1,7 @@
 package com.psutools.reminder.ui.activities
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -15,10 +16,14 @@ import com.psutools.reminder.databinding.ActivityCreateBinding
 import com.psutools.reminder.ui.presentation.create.CreateTripState
 import com.psutools.reminder.ui.presentation.create.CreateTripViewModel
 import com.psutools.reminder.ui.presentation.create.adapter.CreateTripAdapter
+import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreateDetails
+import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreatePointA
+import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreatePointB
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.isDarkMode
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
+import com.psutools.reminder.utils.ui.tools.switcher.createContentStateSwitcher
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,21 +32,30 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
     override val viewBinding: ActivityCreateBinding by lazyUnsafe {
         ActivityCreateBinding.inflate(layoutInflater)
     }
-    private val viewModel: CreateTripViewModel by viewModels<CreateTripViewModel>()
+    private val viewModel: CreateTripViewModel by viewModels()
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
     private lateinit var adapter: CreateTripAdapter
 
     override fun initUi() {
+
+        val isFirstLaunch = viewModel.hasContent
+
         setupToolbar()
         setupRecycler()
+        setupStateSwitcher(isFirstLaunch)
+
+
+        if (!isFirstLaunch) {
+            viewModel.loadData()
+        }
 
         window?.statusBarColor = ContextCompat.getColor(this, R.color.psu_widget_gray)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val decorView = window.decorView
             if (!isDarkMode(this)) {
-                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             } else {
-                decorView.setSystemUiVisibility(0);
+                decorView.systemUiVisibility = 0
             }
         }
     }
@@ -49,12 +63,17 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
     override fun observeData() {
         viewModel.state.collectWithLifecycle(this) { state ->
             when (state) {
-                ScreenState.Loading -> showLoading()
                 is ScreenState.Content -> {
-                    navigateToNextScreen(state.data)
+                    showContent(state.data)
                 }
+
+                ScreenState.Loading -> showLoading()
             }
         }
+    }
+
+    private fun showLoading() {
+        contentStateSwitcher.switchState(ContentState.LOADING)
     }
 
     private fun setupToolbar() {
@@ -78,14 +97,34 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
         }
     }
 
-    private fun setupRecycler() {
-        adapter = CreateTripAdapter()
-        viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
-        viewBinding.recyclerView.adapter = adapter
-    }
+    private fun showContent(stateData: CreateTripState) {
+        when (stateData) {
+            is CreateTripState -> {
+                //список элементов для адаптера
+                val items = listOf(
+                    CreatePointA(hint = stateData.routeAHint, point = stateData.pointA),
+                    CreatePointB(hint = stateData.routeBHint, point = stateData.pointB),
+                    CreateDetails(
+                        selectedDate = stateData.selectedDate,
+                        selectedTime = stateData.selectedTime,
+                        selectedReminder = stateData.selectedReminder
+                    )
+                )
+                adapter.items = items //отдаем элементы в адаптер
 
-    private fun showLoading() {
-        contentStateSwitcher.switchState(ContentState.LOADING)
+                var isFormValid: Boolean =
+                    false // todo кнопка "Далее" неактивна, позже прописать логику
+                viewBinding.nextButton.isEnabled = isFormValid
+                viewBinding.nextButton.backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        if (isFormValid) R.color.psu_yellow else R.color.psu_not_active
+                    )
+                )
+
+                contentStateSwitcher.switchState(ContentState.CONTENT)
+            }
+        }
     }
 
     private fun hideKeyboard(view: View) {
@@ -93,26 +132,21 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
         hide.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private fun navigateToNextScreen(tripState: CreateTripState) {
-//        val intent = Intent(this, EndCreateActivity::class.java).apply {
-//            putExtra("TRIP_DATA", viewModel.getTripData())
-//        }
-//        startActivity(intent)
+    private fun setupRecycler() {
+        adapter = CreateTripAdapter()
+        viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
+        viewBinding.recyclerView.adapter = adapter
     }
 
-//    companion object {
-//        fun createIntent(context: Context, tripData: CreateTripRequest): Intent {
-//            return Intent(context, EndCreateActivity::class.java).apply {
-//                putExtra("TRIP_DATA", tripData)
-//            }
-//        }
-//    }
+    private fun setupStateSwitcher(isFirstLaunch: Boolean) {
+        contentStateSwitcher = createContentStateSwitcher(
+            initialState = if (isFirstLaunch) ContentState.LOADING else ContentState.CONTENT,
+            mapper = { state ->
+                when (state) {
+                    ContentState.CONTENT -> listOf(viewBinding.recyclerView)
+                    else -> emptyList()
+                }
+            }
+        )
+    }
 }
-
-//    Когда НУЖНО писать createIntent() в Activity:
-//    1. Если Activity ПРИНИМАЕТ данные через Intent (через putExtra)
-//    2. Если Activity ЗАПУСКАЕТСЯ из нескольких мест (даже без параметров)
-//
-//    Когда МОЖНО НЕ ПИСАТЬ createIntent():
-//    1. Если Activity НЕ ПРИНИМАЕТ данные и запускается ТОЛЬКО из одного места
-//    2. Если Activity ТОЛЬКО ПЕРЕДАЁТ данные (но не принимает), createIntent() ей не нужен

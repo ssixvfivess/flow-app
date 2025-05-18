@@ -1,5 +1,6 @@
 package com.psutools.reminder.ui.presentation.create.adapter.delegate
 
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +30,8 @@ class CreatePointBDelegate : BaseItemAdapterDelegate<CreatePointB, ViewHolder>()
         payloads: List<Any>
     ) {
         with(holder.viewBinding) {
-            pointB.text = item.point
+            createPointB.hint = item.hint
+            createPointB.setText(item.point)
         }
     }
 

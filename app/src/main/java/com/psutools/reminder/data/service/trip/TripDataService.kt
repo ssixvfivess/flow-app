@@ -23,6 +23,6 @@ interface TripDataService {
     @DELETE("/v1/routes-service/trips/{tripId}")
     suspend fun deleteTrip(@Path("tripId") tripId: String): Response<Unit>
 
-    @POST("/v1/routes-service/trips")
+    @POST("/v1/routes-service/trips?userId=4cef84ba-a98a-4089-b6d8-bf0416ad2208")
     suspend fun createTrip(@Body request: CreateTripRequestApi): CreateTripResponse
 }

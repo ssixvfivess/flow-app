@@ -80,6 +80,8 @@ dependencies {
 
     // MEDIA
     implementation(libs.glide)
+    implementation(libs.lifecycle.viewmodel.savedstate.android)
+    implementation(libs.protolite.well.known.types)
     ksp(libs.glideCompiler)
 
     // NETWORK

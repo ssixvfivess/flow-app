@@ -14,18 +14,18 @@ class CreatePointBDelegate : BaseItemAdapterDelegate<CreatePointB, ViewHolder>()
 
     override fun isForViewType(item: BaseListItem): Boolean = item is CreatePointB
 
-    override fun onCreateViewHolder(parent: ViewGroup): CreatePointBDelegate.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val viewBinding = ItemWayBCreateBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return CreatePointBDelegate.ViewHolder(viewBinding)
+        return ViewHolder(viewBinding)
     }
 
     override fun onBind(
         item: CreatePointB,
-        holder: CreatePointBDelegate.ViewHolder,
+        holder: ViewHolder,
         payloads: List<Any>
     ) {
         with(holder.viewBinding) {

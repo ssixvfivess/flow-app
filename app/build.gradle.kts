@@ -41,7 +41,7 @@ android {
     buildTypes {
         getByName("debug") {
             // Request
-            buildConfigField("String", "API_BASE_URL", "\"https://api.psu-tools.ru\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://dev.api.psu-tools.ru\"")
 
             // System
             buildConfigField("String", "DB_NAME", "\"psutools-trip-reminder-db\"")
@@ -52,7 +52,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 
             // Request
-            buildConfigField("String", "API_BASE_URL", "\"https://api.psu-tools.ru\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://dev.api.psu-tools.ru\"")
 
             // System
             buildConfigField("String", "DB_NAME", "\"psutools-trip-reminder-db\"")

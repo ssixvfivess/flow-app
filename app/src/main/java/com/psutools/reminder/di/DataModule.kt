@@ -35,7 +35,7 @@ abstract class DataModule {
 
     @Binds
     @Reusable
-    abstract fun bindTripDetailsRepository(impl: CreateTripRepository): CreateTripRepositoryImpl
+    abstract fun bindCreateTripRepository(impl: CreateTripRepositoryImpl): CreateTripRepository
 
     @Module
     @InstallIn(SingletonComponent::class)

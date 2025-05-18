@@ -35,6 +35,11 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name="com.psutools.reminder.ui.activities.CreateActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>

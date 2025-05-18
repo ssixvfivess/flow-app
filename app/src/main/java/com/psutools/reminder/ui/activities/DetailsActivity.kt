@@ -38,7 +38,6 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
     private lateinit var adapter: TripDataDetailsAdapter
 
-
     override fun initUi() {
         val isFirstLaunch = viewModel.hasContent
 

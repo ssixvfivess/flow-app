@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_2"
+    android:label="action_routesFragment_to_detailsActivity"
+    app:startDestination="@id/routesFragment">
+    <fragment
+        android:id="@+id/routesFragment"
+        android:name="com.psutools.reminder.ui.fragments.RoutesFragment"
+        android:label="RoutesFragment">
+        <action
+            android:id="@+id/action_routesFragment3_to_detailsActivity"
+            app:destination="@id/createPointActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/createPointActivity"
+        android:name="com.psutools.reminder.ui.sample.details.DetailsActivity"
+        android:label="DetailsActivity" />
+</navigation>

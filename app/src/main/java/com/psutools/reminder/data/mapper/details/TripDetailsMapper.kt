@@ -11,6 +11,7 @@ import org.joda.time.format.DateTimeFormat
 import java.util.UUID
 import javax.inject.Inject
 
+//📌Сущность для преобразования данных из api/db в Domain и наоборот
 class TripDetailsMapper @Inject constructor() {
 
     private val pattern = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ")

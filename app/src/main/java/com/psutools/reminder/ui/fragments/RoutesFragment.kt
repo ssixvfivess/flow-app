@@ -2,12 +2,12 @@ package com.psutools.reminder.ui.fragments
 
 import android.app.Activity
 import android.icu.util.Calendar
-import android.os.Handler
-import android.os.Looper
 import android.widget.CalendarView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.psutools.reminder.R
 import com.psutools.reminder.app.navigation.Router
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
@@ -15,7 +15,7 @@ import com.psutools.reminder.databinding.FragmentRoutesBinding
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListAdapter
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListState
 import com.psutools.reminder.ui.presentation.routes.RoutesViewModel
-import com.psutools.reminder.utils.ui.SnackbarManager
+import com.psutools.reminder.utils.ui.NavigationConstants
 import com.psutools.reminder.utils.ui.collectWithLifecycle
 import com.psutools.reminder.utils.ui.tools.switcher.ContentStateSwitcher
 import com.psutools.reminder.utils.ui.tools.switcher.base.ContentState
@@ -45,6 +45,7 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
         setCalendarToCurrentDate()
         setupStateSwitcher(isFirstLaunch)
         setupCalendar()
+        setupFab()
 
         if (!isFirstLaunch) {
             viewModel.loadData()
@@ -127,5 +128,11 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
     private val onClickListener = { tripId: String ->
         val intent = router.createRouteDetailsIntent(requireContext(), tripId)
         deleteResultLauncher.launch(intent)
+    }
+
+    private fun setupFab() {
+        viewBinding.addFab.setOnClickListener{
+            findNavController().navigate(NavigationConstants.СREATE_GRAPH)
+        }
     }
 }

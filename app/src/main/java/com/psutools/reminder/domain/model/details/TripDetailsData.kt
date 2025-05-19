@@ -6,6 +6,7 @@ import com.psutools.reminder.domain.model.trip.TripStatusData
 import org.joda.time.DateTime
 import java.util.UUID
 
+//📌В какие данные преобразовываем из сырых (с бэка)
 data class TripDetailsData(
     val id: UUID,
     val userId: UUID,

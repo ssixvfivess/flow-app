@@ -9,8 +9,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,7 +35,6 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         ActivityDetailsBinding.inflate(layoutInflater)
     }
     private val viewModel: TripDataDetailsViewModel by viewModels<TripDataDetailsViewModel>()
-
     private lateinit var contentStateSwitcher: ContentStateSwitcher<ContentState>
     private lateinit var adapter: TripDataDetailsAdapter
 

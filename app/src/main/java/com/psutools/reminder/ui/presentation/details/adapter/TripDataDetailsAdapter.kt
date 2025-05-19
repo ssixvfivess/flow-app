@@ -22,8 +22,4 @@ class TripDataDetailsAdapter : ListDelegationAdapter<List<BaseListItem>>() {
         this.items = items ?: emptyList()
         notifyDataSetChanged()
     }
-
-    fun clear() {
-        setItems(emptyList())
-    }
 }

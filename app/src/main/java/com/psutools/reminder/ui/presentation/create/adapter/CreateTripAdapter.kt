@@ -7,12 +7,16 @@ import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreateDetai
 import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreatePointADelegate
 import com.psutools.reminder.ui.presentation.create.adapter.delegate.CreatePointBDelegate
 
-class CreateTripAdapter : ListDelegationAdapter<List<BaseListItem>>() {
+class CreateTripAdapter(
+    private val onTimeSelected: (String) -> Unit,
+    private val onDateSelected: (String) -> Unit,
+    private val onReminderSelected: (String) -> Unit
+) : ListDelegationAdapter<List<BaseListItem>>() {
 
     init {
         delegatesManager.addDelegate(CreatePointADelegate())
         delegatesManager.addDelegate(CreatePointBDelegate())
-        delegatesManager.addDelegate(CreateDetailsDelegate())
+        delegatesManager.addDelegate(CreateDetailsDelegate(onTimeSelected, onDateSelected, onReminderSelected))
     }
 
     @SuppressLint("NotifyDataSetChanged")

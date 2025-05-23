@@ -133,7 +133,17 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
     }
 
     private fun setupRecycler() {
-        adapter = CreateTripAdapter()
+        adapter = CreateTripAdapter(
+            onTimeSelected = { selectedTime ->
+                viewModel.updateSelectedTime(selectedTime)
+            },
+            onDateSelected = { selectedDate ->
+                viewModel.updateSelectedDate(selectedDate)
+            },
+            onReminderSelected = {selectedReminder ->
+                viewModel.updateSelectedReminder(selectedReminder)
+            }
+        )
         viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
         viewBinding.recyclerView.adapter = adapter
     }

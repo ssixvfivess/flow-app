@@ -49,7 +49,32 @@ class CreateTripViewModel @Inject constructor(
         )
     }
 
+
     private companion object {
         const val TAG = "CreateTripViewModel"
+    }
+
+    fun updateSelectedTime(selectedTime: String) {
+        val currentState = _state.value as? ScreenState.Content<CreateTripState>
+        currentState?.data?.let { currentData ->
+            _state.value = ScreenState.Content(
+                currentData.copy(selectedTime = selectedTime)
+            )
+        }
+    }
+
+    fun updateSelectedDate(selectedDate: String) {
+        updateState { it.copy(selectedDate = selectedDate) }
+    }
+
+    fun updateSelectedReminder(reminder: String) {
+        updateState { it.copy(selectedReminder = reminder) }
+    }
+
+    private fun updateState(transform: (CreateTripState) -> CreateTripState) {
+        val currentState = _state.value as? ScreenState.Content<CreateTripState>
+        currentState?.data?.let { currentData ->
+            _state.value = ScreenState.Content(transform(currentData))
+        }
     }
 }

@@ -100,20 +100,9 @@ class CreateActivity : BaseActivity<ActivityCreateBinding>() {
     private fun showContent(stateData: CreateTripState) {
         when (stateData) {
             is CreateTripState -> {
-                //список элементов для адаптера
-                val items = listOf(
-                    CreatePointA(hint = stateData.routeAHint, point = stateData.pointA),
-                    CreatePointB(hint = stateData.routeBHint, point = stateData.pointB),
-                    CreateDetails(
-                        selectedDate = stateData.selectedDate,
-                        selectedTime = stateData.selectedTime,
-                        selectedReminder = stateData.selectedReminder
-                    )
-                )
-                adapter.items = items //отдаем элементы в адаптер
+                adapter.items = stateData.items
 
-                var isFormValid: Boolean =
-                    false // todo кнопка "Далее" неактивна, позже прописать логику
+                val isFormValid = stateData.isFormValid
                 viewBinding.nextButton.isEnabled = isFormValid
                 viewBinding.nextButton.backgroundTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(

@@ -82,6 +82,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.lifecycle.viewmodel.savedstate.android)
     implementation(libs.protolite.well.known.types)
+    implementation(libs.room.runtime.android)
     ksp(libs.glideCompiler)
 
     // NETWORK

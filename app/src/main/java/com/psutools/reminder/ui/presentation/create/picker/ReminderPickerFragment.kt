@@ -27,7 +27,6 @@ class ReminderPickerFragment : DialogFragment() {
             val numberPicker = findViewById<NumberPicker>(R.id.reminder_picker)
             val saveButton = findViewById<Button>(R.id.button_save)
 
-            // Создаем массив значений с шагом 5
             val values = (5..100 step 5).toList().toTypedArray()
 
             numberPicker.apply {
@@ -36,7 +35,6 @@ class ReminderPickerFragment : DialogFragment() {
                 displayedValues = values.map { "$it мин" }.toTypedArray()
                 wrapSelectorWheel = false
 
-                // Восстанавливаем сохраненное значение если есть
                 arguments?.getInt(INITIAL_VALUE_KEY)?.let { initialValue ->
                     val index = values.indexOfFirst { it == initialValue }
                     if (index != -1) value = index
@@ -60,7 +58,7 @@ class ReminderPickerFragment : DialogFragment() {
         private const val INITIAL_VALUE_KEY = "initial_value"
 
         fun newInstance(
-            initialValue: Int = 15, // Значение по умолчанию 15 минут
+            initialValue: Int = 15,
             listener: OnReminderSetListener
         ): ReminderPickerFragment {
             return ReminderPickerFragment().apply {

@@ -54,7 +54,7 @@ class TimePickerFragment : DialogFragment() {
             val parts = timeStr.split(":")
             parts[0].toInt() to parts[1].toInt()
         } catch (e: Exception) {
-            8 to 0 // Значение по умолчанию 08:00
+            8 to 0
         }
     }
 

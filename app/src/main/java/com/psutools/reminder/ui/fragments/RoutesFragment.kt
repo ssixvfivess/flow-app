@@ -1,6 +1,7 @@
 package com.psutools.reminder.ui.fragments
 
 import android.app.Activity
+import android.content.Intent
 import android.icu.util.Calendar
 import android.widget.CalendarView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,6 +13,7 @@ import com.psutools.reminder.app.navigation.Router
 import com.psutools.reminder.base.arch.BaseFragment
 import com.psutools.reminder.base.arch.ScreenState
 import com.psutools.reminder.databinding.FragmentRoutesBinding
+import com.psutools.reminder.ui.activities.CreateActivity
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListAdapter
 import com.psutools.reminder.ui.presentation.routes.RoutesDataListState
 import com.psutools.reminder.ui.presentation.routes.RoutesViewModel
@@ -131,8 +133,9 @@ class RoutesFragment : BaseFragment<FragmentRoutesBinding>() {
     }
 
     private fun setupFab() {
-        viewBinding.addFab.setOnClickListener{
-            findNavController().navigate(NavigationConstants.СREATE_GRAPH)
+        viewBinding.addFab.setOnClickListener {
+            val intent = Intent(requireContext(), CreateActivity::class.java)
+            startActivity(intent)
         }
     }
 }

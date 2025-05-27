@@ -30,6 +30,9 @@ androidGradlePlugin = "8.8.2"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.22"
 hiltPlugin = "2.51.1"
+lifecycleViewmodelSavedstateAndroid = "2.9.0"
+protoliteWellKnownTypes = "18.0.1"
+roomRuntimeAndroid = "2.7.1"
 
 [libraries]
 # ANDROID LIBS
@@ -84,6 +87,9 @@ roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = 
 # SYSTEM UTILS
 jodaTime = { group = "net.danlew", name = "android.joda", version.ref = "jodaTime" }
 ktxSerializationJson = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "ktxSerializationJson" }
+lifecycle-viewmodel-savedstate-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate-android", version.ref = "lifecycleViewmodelSavedstateAndroid" }
+protolite-well-known-types = { group = "com.google.firebase", name = "protolite-well-known-types", version.ref = "protoliteWellKnownTypes" }
+room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

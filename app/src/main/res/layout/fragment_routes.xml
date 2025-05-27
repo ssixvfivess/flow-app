@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:src="@drawable/ic_plus"
-        app:backgroundTint="@color/psu_orange"
+        app:backgroundTint="@color/psu_yellow"
         app:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

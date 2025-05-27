@@ -1,5 +1,7 @@
 package com.psutools.reminder.di
 
+import com.psutools.reminder.domain.usecase.creation.CreateTripUseCase
+import com.psutools.reminder.domain.usecase.creation.CreateTripUseCaseImpl
 import com.psutools.reminder.domain.usecase.details.DeleteTripUseCase
 import com.psutools.reminder.domain.usecase.details.DeleteTripUseCaseImpl
 import com.psutools.reminder.domain.usecase.details.GetTripDetailsUseCase
@@ -27,4 +29,8 @@ interface DomainModule {
     @Binds
     @Reusable
     fun bindDeleteTripUseCase(impl: DeleteTripUseCaseImpl): DeleteTripUseCase
+
+    @Binds
+    @Reusable
+    fun bindCreateTripUseCase(impl: CreateTripUseCaseImpl): CreateTripUseCase
 }

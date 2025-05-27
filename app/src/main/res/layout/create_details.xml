@@ -60,11 +60,11 @@
                 android:fontFamily="@font/open_sans_medium"
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
+                android:text="Дата"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/edit_date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Дата" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/edit_date"
@@ -76,7 +76,7 @@
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
                 android:inputType="date"
-                android:text="6 апр. 2025 г."
+                android:hint="6 мая 2025 г."
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -120,7 +120,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/edit_arrival_time"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Время прибытия" />
+                android:text="Время прибытия" />
 
             <EditText
                 android:id="@+id/edit_arrival_time"
@@ -132,7 +132,7 @@
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
                 android:inputType="time"
-                android:text="08:00"
+                android:hint="13:20"
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -174,9 +174,10 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/edit_reminder"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Напоминание" />
+                android:text="Напоминание" />
 
             <EditText
                 android:id="@+id/edit_reminder"
@@ -188,7 +189,7 @@
                 android:background="@drawable/gray_widget"
                 android:fontFamily="@font/open_sans_medium"
                 android:inputType="text"
-                android:text="за 10 минут"
+                android:hint="За 10 минут"
                 android:textColor="@color/psu_details_heading_toolbar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"

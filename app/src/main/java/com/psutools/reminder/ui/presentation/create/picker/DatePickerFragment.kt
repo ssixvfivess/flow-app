@@ -57,26 +57,6 @@ class DatePickerFragment : DialogFragment() {
         return dialog
     }
 
-    companion object {
-        private const val INITIAL_DATE_KEY = "initial_date"
-        private const val MIN_DATE_KEY = "min_date"
-
-        fun newInstance(
-            initialDate: String = "",
-            minDate: Long = 0,
-            listener: OnDateSetListener
-        ): DatePickerFragment {
-            return DatePickerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(INITIAL_DATE_KEY, initialDate)
-                    putLong(MIN_DATE_KEY, minDate)
-                }
-                setListener(listener)
-                this.minDate = minDate
-            }
-        }
-    }
-
     private fun parseDate(dateStr: String): Triple<Int, Int, Int> {
         return if (dateStr.isNotEmpty()) {
             try {
@@ -101,5 +81,25 @@ class DatePickerFragment : DialogFragment() {
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH) + 1,
             calendar.get(Calendar.DAY_OF_MONTH))
+    }
+
+    companion object {
+        private const val INITIAL_DATE_KEY = "initial_date"
+        private const val MIN_DATE_KEY = "min_date"
+
+        fun newInstance(
+            initialDate: String = "",
+            minDate: Long = 0,
+            listener: OnDateSetListener
+        ): DatePickerFragment {
+            return DatePickerFragment().apply {
+                arguments = Bundle().apply {
+                    putString(INITIAL_DATE_KEY, initialDate)
+                    putLong(MIN_DATE_KEY, minDate)
+                }
+                setListener(listener)
+                this.minDate = minDate
+            }
+        }
     }
 }

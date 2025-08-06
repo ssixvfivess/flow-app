@@ -1,38 +1,38 @@
 [versions]
 adapterDelegates = "4.3.2"
-appcompat = "1.7.0"
+appcompat = "1.7.1"
 constraintLayout = "2.2.1"
-coreKtx = "1.15.0"
+coreKtx = "1.16.0"
 coroutines = "1.8.1"
-espresso = "3.6.1"
-fragmentKtx = "1.8.6"
+espresso = "3.7.0"
+fragmentKtx = "1.8.8"
 glide = "4.16.0"
 glideCompiler = "4.16.0"
 hilt = "2.51.1"
 jodaTime = "2.12.7"
 junit = "4.13.2"
-junitAndroid = "1.2.1"
+junitAndroid = "1.3.0"
 ktxSerializationConverter = "1.0.0"
 ktxSerializationJson = "1.7.1"
 material = "1.12.0"
-materialVersion = "1.9.0"
-navComponents = "2.8.8"
+materialVersion = "1.12.0"
+navComponents = "2.9.3"
 okhttp3Logging = "4.12.0"
 retrofit = "2.11.0"
-room = "2.6.1"
-roomCompiler = "2.6.1"
+room = "2.7.2"
+roomCompiler = "2.7.2"
 swipeRefreshLayout = "1.1.0"
 timber = "5.0.1"
-viewModelKtx = "2.8.7"
+viewModelKtx = "2.9.2"
 
 # PLUGINS
 androidGradlePlugin = "8.8.2"
-kotlin = "2.0.0"
+kotlin = "2.2.0"
 ksp = "2.0.0-1.0.22"
 hiltPlugin = "2.51.1"
-lifecycleViewmodelSavedstateAndroid = "2.9.0"
+lifecycleViewmodelSavedstateAndroid = "2.9.2"
 protoliteWellKnownTypes = "18.0.1"
-roomRuntimeAndroid = "2.7.1"
+roomRuntimeAndroid = "2.7.2"
 
 [libraries]
 # ANDROID LIBS
@@ -40,11 +40,13 @@ kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref =
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 fragmentKtx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+#noinspection SimilarGradleDependency
 material-v190 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 viewModelKtx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModelKtx" }
 
 
 # MATERIAL COMPONENTS
+#noinspection SimilarGradleDependency
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 swipeRefreshLayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swipeRefreshLayout" }
 constraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }

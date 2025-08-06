@@ -28,12 +28,14 @@ class TripDataListUiMapper @Inject constructor(
             )
         )
 
-
+        //Активные поездки
         val activeTrips = dataList.filter { it.status == TripStatusData.ACTIVE }
         if (activeTrips.isEmpty()) {
             items.add(
                 TripEmptyListMessage(
-                    message = resourceProvider.getString(R.string.no_active_trips)
+                    message = null,
+                    pic = null
+
                 )
             )
         } else {
@@ -58,7 +60,13 @@ class TripDataListUiMapper @Inject constructor(
 
         val upcomingTrips = dataList.subtract(activeTrips)
         if (upcomingTrips.isEmpty()) {
-            items.add(TripEmptyListMessage(message = resourceProvider.getString(R.string.no_trips_this_week)))
+            items.add(
+                TripEmptyListMessage(
+                    message = resourceProvider.getString(R.string.no_active_trips),
+                    pic = resourceProvider.getDrawable(R.drawable.ic_folder_for_home_screen)
+
+                )
+            )
         } else {
             for (upcomingTrip in upcomingTrips) {
                 items.add(

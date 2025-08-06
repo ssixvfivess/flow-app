@@ -28,7 +28,7 @@ viewModelKtx = "2.9.2"
 # PLUGINS
 androidGradlePlugin = "8.8.2"
 kotlin = "2.2.0"
-ksp = "2.0.0-1.0.22"
+ksp = "2.2.0-2.0.2"
 hiltPlugin = "2.51.1"
 lifecycleViewmodelSavedstateAndroid = "2.9.2"
 protoliteWellKnownTypes = "18.0.1"
